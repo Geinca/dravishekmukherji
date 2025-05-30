@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prof. Dr. Avishek Mukherjee </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #005b96;
+            --primary-dark: #003d66;
+            --primary-light: #e6f2ff;
+            --secondary: #e67e22;
+            --white: #ffffff;
+            --light-gray: #f8f9fa;
+            --dark-gray: #2c3e50;
+            --medium-gray: #6c757d;
+            --light-text: #95a5a6;
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            --border-radius: 6px;
+            --nav-height: 80px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            overflow-x: hidden;
+            color: var(--dark-gray);
+            line-height: 1.6;
+        }
+
+        /* Header Navigation */
+        .header-nav {
+            background-color: var(--white);
+            box-shadow: var(--box-shadow);
+            position: sticky;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            height: var(--nav-height);
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-container {
+            width: 100%;
+            max-width: 2000px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Branding */
+        .branding {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+            transition: var(--transition);
+            margin-right: 40px;
+        }
+
+        .branding:hover {
+            opacity: 0.9;
+        }
+
+        .logo-placeholder {
+            width: 70px;
+            height: 70px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border: 2px solid rgba(0, 91, 150, 0.2);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        .logo-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .title-container h1 {
+            font-size: 23px;
+            color: var(--primary);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 3px;
+            white-space: nowrap;
+        }
+
+        .title-container p {
+            font-size: 13px;
+            color: var(--medium-gray);
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        /* Navigation Links */
+        .nav-main {
+            display: flex;
+            align-items: center;
+            flex-grow: 1;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 0.5px;
+            align-items: center;
+            margin: 0 auto;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-gray);
+            font-weight: 500;
+            font-size: 15px;
+            transition: var(--transition);
+            position: relative;
+            padding: 12px 15px;
+            border-radius: var(--border-radius);
+            white-space: nowrap;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+            background-color: var(--primary-light);
+        }
+
+        .nav-links a.active {
+            color: rgb(84, 182, 182);
+            font-weight: 600;
+        }
+
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 8px;
+            left: 15px;
+            right: 15px;
+            height: 2px;
+            /* background-color: var(--primary); */
+            border-radius: 2px;
+        }
+
+        /* CTA Button */
+        .cta-appbutton {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: var(--transition);
+            box-shadow: 0 2px 10px rgba(0, 91, 150, 0.3);
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            white-space: nowrap;
+            margin-left: 20px;
+        }
+
+        .cta-appbutton:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 91, 150, 0.4);
+        }
+
+        .cta-appbutton i {
+            font-size: 14px;
+        }
+
+        /* Mobile Menu Button */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--primary);
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 50%;
+            transition: var(--transition);
+            z-index: 1001;
+        }
+
+        .mobile-menu-btn:hover {
+            background-color: rgba(0, 91, 150, 0.1);
+        }
+
+        /* Mobile Sidebar Menu */
+        .mobile-sidebar {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 520px;
+            height: 100vh;
+            background-color: var(--white);
+            box-shadow: -5px 0 25px rgba(0, 0, 0, 0.15);
+            z-index: 1000;
+            transition: right 0.3s ease;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .mobile-sidebar.active {
+            right: 0;
+        }
+
+        .mobile-sidebar-header {
+            padding: 25px 25px 15px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .mobile-sidebar-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 22px;
+            color: var(--medium-gray);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .mobile-sidebar-close:hover {
+            color: var(--primary);
+            transform: rotate(90deg);
+        }
+
+        .mobile-branding {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .mobile-logo-placeholder {
+            width: 50%;
+            height: 70%;
+            /* background-color: var(--primary); */
+            /* border-radius: 50%; */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .mobile-logo-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .mobile-title-container h2 {
+            font-size: 18px;
+            color: var(--primary);
+            margin-bottom: 3px;
+        }
+
+        .mobile-title-container p {
+            font-size: 12px;
+            color: var(--medium-gray);
+        }
+
+        .mobile-nav-links {
+            padding: 15px 0;
+            display: flex;
+            flex-direction: column;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .mobile-nav-link {
+            padding: 15px 25px;
+            color: var(--dark-gray);
+            text-decoration: none;
+            transition: var(--transition);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .mobile-nav-link i {
+            width: 20px;
+            color: var(--primary);
+            font-size: 14px;
+        }
+
+        .mobile-nav-link:hover, .mobile-nav-link.active {
+            color: var(--primary);
+            background-color: var(--primary-light);
+        }
+
+        .mobile-nav-link.active {
+            font-weight: 600;
+            border-left: 3px solid var(--primary);
+        }
+
+        .mobile-contact-section {
+            padding: 20px 25px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .mobile-contact-section h3 {
+            font-size: 16px;
+            color: var(--primary);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .mobile-contact-section h3 i {
+            font-size: 18px;
+        }
+
+        .mobile-contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .mobile-contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            color: var(--dark-gray);
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .mobile-contact-item a {
+            color: var(--dark-gray);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .mobile-contact-item a:hover {
+            color: var(--primary);
+        }
+
+        .mobile-contact-item i {
+            color: var(--primary);
+            margin-top: 3px;
+            font-size: 16px;
+            min-width: 20px;
+        }
+
+        .mobile-cta-button {
+            display: block;
+            text-align: center;
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 15px;
+            border-radius: var(--border-radius);
+            margin: 20px 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .mobile-cta-button:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .mobile-social-section {
+            padding: 15px 25px;
+            margin-top: auto;
+        }
+
+        .mobile-social-section h3 {
+            font-size: 16px;
+            color: var(--primary);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .mobile-social-section h3 i {
+            font-size: 18px;
+        }
+
+        .mobile-social-links {
+            display: flex;
+            gap: 12px;
+        }
+
+        .mobile-social-link {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background-color: var(--primary-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            transition: var(--transition);
+            font-size: 16px;
+        }
+
+        .mobile-social-link:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .mobile-sidebar-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .mobile-sidebar-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1200px) {
+            .nav-container {
+                padding: 0 30px;
+            }
+            
+            .nav-links a {
+                padding: 12px 12px;
+                font-size: 14px;
+            }
+            
+            .cta-button {
+                padding: 10px 20px;
+                margin-left: 15px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .branding {
+                margin-right: 20px;
+            }
+            
+            .title-container h1 {
+                font-size: 18px;
+            }
+        }
+
+        /* Tablet and Mobile View */
+        @media (max-width: 768px) {
+            .nav-main {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .logo-placeholder {
+                width: 70px;
+                height: 50px;
+            }
+            
+            .title-container h1 {
+                font-size: 16px;
+            }
+            
+            .title-container p {
+                font-size: 11px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            :root {
+                --nav-height: 70px;
+            }
+            
+            .nav-container {
+                padding: 0 20px;
+            }
+            
+            .mobile-sidebar {
+                width: 280px;
+            }
+            
+            .logo-placeholder {
+                width: 70px;
+                height: 60px;
+            }
+            
+            .title-container h1 {
+                font-size: 15px;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Main Navigation -->
+    <header class="header-nav">
+        <div class="nav-container">
+            <a href="index.html" class="branding">
+                <div class="logo-placeholder">
+                    <img src="https://i.ibb.co/yn2zCc6L/10443986.jpg" alt="logo">
+                </div>
+                <div class="title-container">
+                    <h1>Dr. Avishek Mukherjee</h1>
+                    <!-- <p>Orthopaedic Specialist</p> -->
+                </div>
+            </a>
+            
+            <div class="nav-main">
+                <nav class="nav-links">
+                    <a href="index.html">Home&nbsp;&nbsp;|</a>
+                    <a href="about.html">About&nbsp;&nbsp;|</a>
+                     <a href="https://www.nkpc.in/">NKPC Hospital&nbsp;&nbsp;|</a>
+                      <a href="doc-says.html">Doc Says&nbsp;&nbsp;|</a>
+                    <a href="videosection.html"> Surgery Videos&nbsp;&nbsp;|</a>
+                    <a href="blogging.html">Blog&nbsp;&nbsp;|</a>
+                    <a href="contact.html">Contact</a>
+                </nav>
+                
+                <a href="appointment.html" class="cta-appbutton">
+                    <i class="fas fa-calendar-check"></i>
+                    Book Appointment
+                </a>
+            </div>
+           
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Sidebar Menu -->
+    <div class="mobile-sidebar-overlay" id="mobileOverlay"></div>
+    <div class="mobile-sidebar" id="mobileSidebar">
+        <div class="mobile-sidebar-header">
+            <button class="mobile-sidebar-close" id="mobileSidebarClose" aria-label="Close menu">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="mobile-branding">
+                <div class="mobile-logo-placeholder">
+                    <img src="https://i.ibb.co/yn2zCc6L/10443986.jpg" alt="Dr. Avishek Mukherjee">
+                </div>
+                <div class="mobile-title-container">
+                    <h2>Dr. Avishek Mukherjee</h2>
+                </div>
+            </div>
+        </div>
+        
+        <nav class="mobile-nav-links">
+            <a href="index.html" class="mobile-nav-link">
+                <i class="fas fa-home"></i>
+                Home
+            </a>
+            <a href="about.html" class="mobile-nav-link">
+                <i class="fas fa-user-md"></i>
+                About
+            </a>
+
+             <a href="https://www.nkpc.in/" class="mobile-nav-link">
+                <i class="fas fa-hospital"></i>
+                NKPC Hospital
+            </a>
+
+             <a href="doc-says.html" class="mobile-nav-link">
+                <i class="fas fa-user-nurse"></i>
+               Doc Says
+            </a>
+            
+            <a href="videosection.html" class="mobile-nav-link">
+                <i class="fas fa-video"></i>
+                Surgery Videos
+            </a>
+            <a href="blogging.html" class="mobile-nav-link">
+                <i class="fas fa-blog"></i>
+                Blog
+            </a>
+            <a href="contact.html" class="mobile-nav-link">
+                <i class="fas fa-envelope"></i>
+                Contact
+            </a>
+        </nav>
+
+
+         <a href="appointment.html" class="mobile-cta-button">
+            <i class="fas fa-calendar-check"></i>
+            Book Appointment
+        </a>
+        
+        <div class="mobile-contact-section">
+            <h3><i class="fas fa-map-marker-alt"></i> Contact Info</h3>
+            <div class="mobile-contact-info">
+                <div class="mobile-contact-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <a href="tel:08420017061">+91 84200 17061</a>
+                </div>
+                <div class="mobile-contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:nationalkidney99@gmail.com">nationalkidney99@gmail.com</a>
+                </div>
+                <div class="mobile-contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>1212, KALIKAPUR, PURBALOK, KOLKATA -700 099 (NEAR METRO CASH & CARRY)</span>
+                </div>
+            </div>
+        </div>
+        
+       
+        
+        <div class="mobile-social-section">
+            <!-- <h3><i class="fas fa-share-alt"></i> Connect With Us</h3> -->
+            <div class="mobile-social-links">
+                <a href="#" class="mobile-social-link" aria-label="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="mobile-social-link" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <!-- <a href="#" class="mobile-social-link" aria-label="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a> -->
+                <a href="#" class="mobile-social-link" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileSidebar = document.getElementById('mobileSidebar');
+            const mobileOverlay = document.getElementById('mobileOverlay');
+            const mobileSidebarClose = document.getElementById('mobileSidebarClose');
+            const body = document.body;
+            
+            // Toggle mobile sidebar
+            function toggleSidebar() {
+                mobileSidebar.classList.toggle('active');
+                mobileOverlay.classList.toggle('active');
+                body.style.overflow = mobileSidebar.classList.contains('active') ? 'hidden' : '';
+                
+                // Change menu icon
+                const icon = mobileMenuBtn.querySelector('i');
+                icon.classList.toggle('fa-bars');
+                icon.classList.toggle('fa-times');
+            }
+            
+            mobileMenuBtn.addEventListener('click', toggleSidebar);
+            mobileSidebarClose.addEventListener('click', toggleSidebar);
+            
+            // Close sidebar when clicking overlay
+            mobileOverlay.addEventListener('click', toggleSidebar);
+            
+            // Close sidebar when clicking on a link
+            document.querySelectorAll('.mobile-nav-link, .mobile-cta-button').forEach(link => {
+                link.addEventListener('click', toggleSidebar);
+            });
+
+            // Highlight current page
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            document.querySelectorAll('.nav-links a, .mobile-nav-link').forEach(link => {
+                const linkPage = link.getAttribute('href');
+                if (currentPage === linkPage) {
+                    link.classList.add('active');
+                }
+            });
+
+            // Close sidebar when window is resized
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 768 && mobileSidebar.classList.contains('active')) {
+                    toggleSidebar();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

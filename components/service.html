@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NKPC Kidney Clinic - Our Services</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Modern Color Palette */
+        :root {
+            --nkpc-primary: #0a66c2;
+            --nkpc-secondary: #25aae1;
+            --nkpc-accent: #ff6b6b;
+            --nkpc-light: #f8f9fa;
+            --nkpc-dark: #212529;
+            --nkpc-gray: #6c757d;
+            --nkpc-white: #ffffff;
+        }
+
+        /* NKPC Services Section */
+        .nkpc-services-container {
+             font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+            padding: 3rem 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nkpc-services-inner {
+            max-width: 1500px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .nkpc-services-header {
+            text-align: center;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .nkpc-services-header::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--nkpc-primary), var(--nkpc-secondary));
+            margin: 1.5rem auto 0;
+            border-radius: 2px;
+        }
+
+        .nkpc-services-title {
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 2.75rem;
+            font-weight: 600;
+            color: var(--nkpc-dark);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .nkpc-services-subtitle {
+            font-size: 1.1rem;
+            color: var(--nkpc-gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* NKPC Services Grid */
+        .nkpc-services-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(280px, 1fr));
+            gap: 1rem;
+        }
+
+        .nkpc-service-card {
+            background: var(--nkpc-white);
+            border-radius: 16px;
+            padding: 2.5rem 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            text-align: center;
+            border: 1px solid rgba(0, 0, 0, 0.03);
+        }
+
+        .nkpc-service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--nkpc-primary), var(--nkpc-secondary));
+            transition: height 0.3s ease;
+        }
+
+        .nkpc-service-card:hover::before {
+            height: 8px;
+        }
+
+        .nkpc-service-icon img {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(10, 102, 194, 0.1) 0%, rgba(37, 170, 225, 0.1) 100%);
+            border-radius: 50%;
+            color: var(--nkpc-primary);
+            font-size: 2.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .nkpc-service-card:hover .nkpc-service-icon {
+            transform: translateY(-5px);
+            /* background: linear-gradient(135deg, var(--nkpc-primary), var(--nkpc-secondary)); */
+            color: var(--nkpc-white);
+            /* box-shadow: 0 10px 20px rgba(10, 102, 194, 0.2); */
+        }
+
+        .nkpc-service-name {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--nkpc-dark);
+            margin-bottom: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .nkpc-service-desc {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--nkpc-gray);
+            margin-bottom: 1.5rem;
+        }
+
+        .nkpc-service-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--nkpc-primary);
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(10px);
+            position: relative;
+        }
+
+        .nkpc-service-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--nkpc-primary);
+            transition: width 0.3s ease;
+        }
+
+        .nkpc-service-link i {
+            margin-left: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .nkpc-service-card:hover .nkpc-service-link {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .nkpc-service-link:hover {
+            color: var(--nkpc-secondary);
+        }
+
+        .nkpc-service-link:hover::after {
+            width: 100%;
+        }
+
+        .nkpc-service-link:hover i {
+            transform: translateX(3px);
+        }
+
+        .nkpc-service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Decorative Elements */
+        .nkpc-services-bg-element {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(10, 102, 194, 0.05) 0%, rgba(37, 170, 225, 0.05) 100%);
+            z-index: 1;
+        }
+
+        .nkpc-services-bg-element-1 {
+            top: -150px;
+            right: -150px;
+        }
+
+        .nkpc-services-bg-element-2 {
+            bottom: -100px;
+            left: -100px;
+            width: 200px;
+            height: 200px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .nkpc-services-container {
+                padding: 5rem 1.5rem;
+            }
+            
+            .nkpc-services-title {
+                font-size: 2.25rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nkpc-services-header {
+                margin-bottom: 3rem;
+            }
+            
+            .nkpc-services-title {
+                font-size: 2rem;
+            }
+            
+            .nkpc-services-subtitle {
+                font-size: 1rem;
+            }
+            
+            .nkpc-service-card {
+                padding: 2rem 1.5rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .nkpc-services-container {
+                padding: 4rem 1rem;
+            }
+            
+            .nkpc-services-title {
+                font-size: 1.75rem;
+            }
+            
+            .nkpc-services-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="nkpc-services-container">
+        <div class="nkpc-services-bg-element nkpc-services-bg-element-1"></div>
+        <div class="nkpc-services-bg-element nkpc-services-bg-element-2"></div>
+        
+        <div class="nkpc-services-inner">
+            <div class="nkpc-services-header" >
+                <h2 class="nkpc-services-title">Our Specialized Services</h2>
+                <p class="nkpc-services-subtitle">Advanced urological care with cutting-edge technology and compassionate expertise</p>
+            </div>
+            
+            <div class="nkpc-services-grid">
+                <div class="nkpc-service-card">
+                    <div class="nkpc-service-icon">
+                        <img src="images/1.jpg" alt="">
+                    </div>
+                    <h3 class="nkpc-service-name">Laser Prostate Surgery</h3>
+                    <p class="nkpc-service-desc">Precision laser treatments for BPH with minimal discomfort and faster recovery times compared to traditional methods.</p>
+                    <!-- <a href="#" class="nkpc-service-link">Learn more <i class="fas fa-chevron-right"></i></a> -->
+                </div>
+                
+                <div class="nkpc-service-card">
+                    <div class="nkpc-service-icon">
+                        <img src="images/2.jpg" alt="">
+                    </div>
+                    <h3 class="nkpc-service-name">Stone Management</h3>
+                    <p class="nkpc-service-desc">Comprehensive care for kidney and urinary stones using advanced lithotripsy and endoscopic techniques.</p>
+                    <!-- <a href="#" class="nkpc-service-link">Learn more <i class="fas fa-chevron-right"></i></a> -->
+                </div>
+                
+                <div class="nkpc-service-card">
+                    <div class="nkpc-service-icon">
+                       <img src="images/3.jpg" alt="">
+                    </div>
+                    <h3 class="nkpc-service-name">Laparoscopic Reconstruction</h3>
+                    <p class="nkpc-service-desc">Minimally invasive procedures to restore urinary tract function with precision and reduced recovery time.</p>
+                    <!-- <a href="#" class="nkpc-service-link">Learn more <i class="fas fa-chevron-right"></i></a> -->
+                </div>
+                
+                <div class="nkpc-service-card">
+                    <div class="nkpc-service-icon">
+                      <img src="images/4.jpg" alt="">
+                    </div>
+                    <h3 class="nkpc-service-name">Oncological Urology</h3>
+                    <p class="nkpc-service-desc">Specialized surgical and therapeutic approaches for kidney, bladder, and prostate cancers.</p>
+                    <!-- <a href="#" class="nkpc-service-link">Learn more <i class="fas fa-chevron-right"></i></a> -->
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

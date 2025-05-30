@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NKPC Kidney Clinic - About Us</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --nkpc-primary: #0066cc;
+            --nkpc-secondary: #00a0e1;
+            --nkpc-accent: #ff6b6b;
+            --nkpc-dark: #2c3e50;
+            --nkpc-light: #f8f9fa;
+        }
+        
+        /* Reset and base styles */
+        .nkpc-reset-styles {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        .nkpc-body-styles {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+        
+        .nkpc-main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* About Us Section */
+        .nkpc-about-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9f2f9 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .nkpc-about-section::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, var(--nkpc-secondary) 0%, rgba(0,160,225,0.1) 70%);
+            border-radius: 50%;
+            z-index: 0;
+        }
+        
+        .nkpc-about-section::after {
+            content: '';
+            position: absolute;
+            bottom: -30px;
+            left: -30px;
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, var(--nkpc-accent) 0%, rgba(255,107,107,0.1) 70%);
+            border-radius: 50%;
+            z-index: 0;
+        }
+        
+        .nkpc-about-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .nkpc-clinic-image {
+            flex: 1;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            transform: perspective(1000px) rotateY(-5deg);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            animation: floatImage 6s ease-in-out infinite;
+            background: white;
+            padding: 10px;
+        }
+        
+        @keyframes floatImage {
+            0%, 100% { transform: perspective(1000px) rotateY(-5deg) translateY(0); }
+            50% { transform: perspective(1000px) rotateY(-5deg) translateY(-15px); }
+        }
+        
+        .nkpc-clinic-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 10px;
+            transition: transform 0.8s ease, filter 0.8s ease;
+            filter: grayscale(10%) contrast(95%);
+        }
+        
+        .nkpc-clinic-image:hover {
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+            transform: perspective(1000px) rotateY(0deg);
+        }
+        
+        .nkpc-clinic-image:hover img {
+            transform: scale(1.05);
+            filter: grayscale(0%) contrast(100%);
+        }
+        
+        .nkpc-about-details {
+            flex: 1;
+            animation: fadeInRight 1s ease-out;
+        }
+        
+        @keyframes fadeInRight {
+            from { opacity: 0; transform: translateX(30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        .nkpc-section-heading {
+            font-size: 42px;
+            margin-bottom: 25px;
+            color: var(--nkpc-dark);
+            position: relative;
+            padding-bottom: 15px;
+            font-weight: 700;
+            background: linear-gradient(to right, var(--nkpc-primary), var(--nkpc-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .nkpc-section-heading::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--nkpc-primary), var(--nkpc-secondary));
+            border-radius: 2px;
+        }
+        
+        .nkpc-description-text {
+            margin-bottom: 30px;
+            color: #555;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+        
+        .nkpc-highlight-text {
+            background: linear-gradient(to right, var(--nkpc-primary), var(--nkpc-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 600;
+            padding: 0 2px;
+        }
+        
+        .nkpc-services-heading {
+            font-size: 24px;
+            margin: 35px 0 20px;
+            color: var(--nkpc-dark);
+            font-weight: 600;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .nkpc-services-heading::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(to right, var(--nkpc-primary), transparent);
+        }
+        
+        .nkpc-services-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        
+        .nkpc-service-card {
+            display: flex;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .nkpc-service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--nkpc-primary), var(--nkpc-secondary));
+            transition: width 0.4s ease;
+            z-index: -1;
+        }
+        
+        .nkpc-service-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+        
+        .nkpc-service-card:hover::before {
+            width: 100%;
+            opacity: 0.1;
+        }
+        
+        .nkpc-service-icon {
+            margin-right: 15px;
+            font-size: 24px;
+            min-width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            background: linear-gradient(135deg, var(--nkpc-primary) 0%, var(--nkpc-secondary) 100%);
+            box-shadow: 0 5px 15px rgba(0, 102, 204, 0.3);
+            transition: all 0.4s ease;
+        }
+        
+        .nkpc-service-card:nth-child(odd) .nkpc-service-icon {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+        }
+        
+        .nkpc-service-card:nth-child(even) .nkpc-service-icon {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+        }
+        
+        .nkpc-service-card:nth-child(3n) .nkpc-service-icon {
+            background: linear-gradient(135deg, #f46b45 0%, #eea849 100%);
+        }
+        
+        .nkpc-service-card:nth-child(4n) .nkpc-service-icon {
+            background: linear-gradient(135deg, #8e2de2 0%, #4a00e0 100%);
+        }
+        
+        .nkpc-service-card:hover .nkpc-service-icon {
+            transform: rotate(15deg) scale(1.1);
+            box-shadow: 0 8px 25px rgba(0, 102, 204, 0.4);
+        }
+        
+        .nkpc-service-name {
+            font-weight: 500;
+            color: var(--nkpc-dark);
+            transition: color 0.3s ease;
+        }
+        
+        .nkpc-service-card:hover .nkpc-service-name {
+            color: var(--nkpc-primary);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .nkpc-about-wrapper {
+                flex-direction: column;
+            }
+            
+            .nkpc-clinic-image {
+                max-width: 600px;
+                margin: 0 auto 50px;
+                transform: perspective(1000px) rotateY(0deg);
+            }
+            
+            .nkpc-about-details {
+                text-align: center;
+            }
+            
+            .nkpc-section-heading::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .nkpc-services-heading::after {
+                left: 50%;
+                transform: translateX(-50%);
+                width: 80%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nkpc-services-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .nkpc-section-heading {
+                font-size: 36px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .nkpc-about-section {
+                padding: 70px 0;
+            }
+            
+            .nkpc-section-heading {
+                font-size: 32px;
+            }
+            
+            .nkpc-service-card {
+                padding: 12px 15px;
+            }
+            
+            .nkpc-service-icon {
+                font-size: 20px;
+                min-width: 36px;
+                height: 36px;
+                margin-right: 12px;
+            }
+        }
+    </style>
+</head>
+<body class="nkpc-body-styles">
+    <section class="nkpc-about-section">
+        <div class="nkpc-main-container">
+            <div class="nkpc-about-wrapper">
+                <div class="nkpc-clinic-image">
+                    <img src="https://i.ibb.co/G4LPts8m/about.png" alt="NKPC Kidney Clinic">
+                </div>
+                
+                <div class="nkpc-about-details">
+                    <h2 class="nkpc-section-heading">About NKPC Kidney Clinic</h2>
+                    <p class="nkpc-description-text">
+                        <span class="nkpc-highlight-text">NKPC kidney clinic</span> was established in the year <span class="nkpc-highlight-text">2007</span>. For the last <span class="nkpc-highlight-text">seventeen years</span> we have provided <span class="nkpc-highlight-text">state of the art kidney care</span>. We provide the full spectrum of kidney, bladder, and prostate surgery, nephrology services and <span class="nkpc-highlight-text">kidney transplantation</span> too.
+                    </p>
+                    <p class="nkpc-description-text">
+                        We have a <span class="nkpc-highlight-text">speciality surgical center</span> of <span class="nkpc-highlight-text">26 beds</span> located on the <span class="nkpc-highlight-text">E M Bypass</span>, equipped with the latest technology and staffed by experienced specialists dedicated to your kidney health.
+                    </p>
+                    
+                    <h3 class="nkpc-services-heading">Our Specialized Services:</h3>
+                    <div class="nkpc-services-container">
+                        <div class="nkpc-service-card">
+                            <span class="nkpc-service-icon"><i class="fas fa-laser"></i></span>
+                            <span class="nkpc-service-name">Laser Stone Surgery</span>
+                        </div>
+                        <div class="nkpc-service-card">
+                            <span class="nkpc-service-icon"><i class="fas fa-procedures"></i></span>
+                            <span class="nkpc-service-name">Laser Prostate Surgery</span>
+                        </div>
+                        <div class="nkpc-service-card">
+                            <span class="nkpc-service-icon"><i class="fas fa-kidneys"></i></span>
+                            <span class="nkpc-service-name">Kidney Cancer Surgery</span>
+                        </div>
+                        <div class="nkpc-service-card">
+                            <span class="nkpc-service-icon"><i class="fas fa-prostate"></i></span>
+                            <span class="nkpc-service-name">Prostate Cancer Surgery</span>
+                        </div>
+                        <div class="nkpc-service-card">
+                            <span class="nkpc-service-icon"><i class="fas fa-bladder"></i></span>
+                            <span class="nkpc-service-name">Bladder Cancer Surgery</span>
+                        </div>
+                        <div class="nkpc-service-card">
+                            <span class="nkpc-service-icon"><i class="fas fa-heartbeat"></i></span>
+                            <span class="nkpc-service-name">Kidney Transplant Surgery</span>
+                        </div>
+                        <div class="nkpc-service-card">
+                            <span class="nkpc-service-icon"><i class="fas fa-hospital-user"></i></span>
+                            <span class="nkpc-service-name">Advanced Hemodialysis</span>
+                        </div>
+                        <div class="nkpc-service-card">
+                            <span class="nkpc-service-icon"><i class="fas fa-stethoscope"></i></span>
+                            <span class="nkpc-service-name">Nephrology Care</span>
+                        </div>
+                        <div class="nkpc-service-card">
+                            <span class="nkpc-service-icon"><i class="fas fa-gallbladder"></i></span>
+                            <span class="nkpc-service-name">Gall Bladder Surgery</span>
+                        </div>
+                        <div class="nkpc-service-card">
+                            <span class="nkpc-service-icon"><i class="fas fa-cut"></i></span>
+                            <span class="nkpc-service-name">Minimal Access Hernia Surgery</span>
+                        </div>
+                        <div class="nkpc-service-card">
+                            <span class="nkpc-service-icon"><i class="fas fa-recycle"></i></span>
+                            <span class="nkpc-service-name">Reconstructive Urethroplasty</span>
+                        </div>
+                        <div class="nkpc-service-card">
+                            <span class="nkpc-service-icon"><i class="fas fa-microscope"></i></span>
+                            <span class="nkpc-service-name">Laparoscopic Pyeloplasty</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

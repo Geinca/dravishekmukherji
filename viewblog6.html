@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Matters | Wellness Blog</title>
+    <style>
+        :root {
+            --primary: #2a9d8f;
+            --secondary: #264653;
+            --accent: #e9c46a;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --text: #333;
+            --gray: #6c757d;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+       
+
+        .blog-header {
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .blog-header h1 {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        .blog-meta {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .blog-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .main-article {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+
+        .article-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .article-body {
+            padding: 2rem;
+        }
+
+        .article-body h2 {
+            color: var(--secondary);
+            margin: 1.5rem 0 1rem;
+        }
+
+        .article-body p {
+            margin-bottom: 1.5rem;
+        }
+
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .sidebar-widget {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            padding: 1.5rem;
+        }
+
+        .widget-title {
+            color: var(--secondary);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent);
+        }
+
+        .recent-posts {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .recent-post {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .recent-post img {
+            width: 80px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .recent-post h4 {
+            font-size: 0.9rem;
+        }
+
+        .categories ul {
+            list-style: none;
+        }
+
+        .categories li {
+            margin-bottom: 0.5rem;
+        }
+
+        .categories a {
+            color: var(--text);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .categories a:hover {
+            color: var(--primary);
+        }
+
+        .newsletter-form input {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .newsletter-form button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .newsletter-form button:hover {
+            background-color: var(--secondary);
+        }
+
+       
+        @media (max-width: 768px) {
+            .blog-content {
+                grid-template-columns: 1fr;
+            }
+            
+          
+        }
+    </style>
+</head>
+<body>
+   
+
+    <div id="top"></div>
+<div id="nav"></div>
+    <main class="container" style="padding-top: 40px;">
+        <article class="blog-content">
+            <div class="main-article">
+                <img src="https://i.ibb.co/vtw0zCz/b6.jpg" alt="Doctor with patient" class="article-image">
+                <div class="article-body">
+                    <div class="blog-meta">
+                        <span>Posted on: June 15, 2023</span> | 
+                        <span>Dr. Avishek Mukherjee</span>
+                    </div>
+                    <h1>Bladder Cancer: Early Signs & Detection</h1>
+                
+                    <p>Bladder cancer is a serious condition that begins in the cells lining the bladder. Early detection is crucial, as it significantly improves the chances of successful treatment and recovery. Understanding the early warning signs can lead to quicker diagnosis and better outcomes.</p>
+                
+                    <h2>What Is Bladder Cancer?</h2>
+                    <p>Bladder cancer typically starts in the urothelial cells that line the inside of the bladder. It can range from low-grade, non-invasive tumors to more aggressive forms that penetrate deeper layers and may spread to other organs.</p>
+                
+                    <h2>Common Early Symptoms</h2>
+                    <ul>
+                        <li><strong>Blood in Urine (Hematuria):</strong> The most common early symptom, often painless</li>
+                        <li><strong>Frequent Urination:</strong> Feeling the urge to urinate more often than usual</li>
+                        <li><strong>Pain During Urination:</strong> A burning or stinging sensation</li>
+                        <li><strong>Pelvic or Back Pain:</strong> Can occur in advanced stages</li>
+                    </ul>
+                
+                    <h2>Risk Factors</h2>
+                    <ol>
+                        <li><strong>Smoking:</strong> The leading risk factor for bladder cancer</li>
+                        <li><strong>Occupational Exposure:</strong> Contact with industrial chemicals</li>
+                        <li><strong>Chronic Bladder Inflammation:</strong> Recurrent infections or long-term catheter use</li>
+                        <li><strong>Age and Gender:</strong> Most common in older men</li>
+                    </ol>
+                
+                    <h2>Methods of Early Detection</h2>
+                    <p>Early diagnosis is possible through routine medical evaluation and awareness of symptoms. Common detection methods include:</p>
+                    <ul>
+                        <li><strong>Urine Tests:</strong> Detect abnormal cells or blood in the urine</li>
+                        <li><strong>Cystoscopy:</strong> A thin tube with a camera is inserted into the bladder for visual inspection</li>
+                        <li><strong>Imaging Tests:</strong> CT scans or ultrasounds can identify tumors or abnormalities</li>
+                    </ul>
+                
+                    <p>If you experience persistent urinary issues or see blood in your urine, it's important to consult a urologist promptly. Dr. Avishek Mukherjee specializes in early detection and treatment strategies to ensure the best possible patient outcomes.</p>
+                </div>
+                
+            </div>
+
+            <aside class="sidebar">
+                <div class="sidebar-widget">
+                    <h3 class="widget-title">About the Author</h3>
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                        <img src="https://i.ibb.co/PvccRt4Z/mukharji.png" alt="Dr" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover;">
+                        <div>
+                            <h4>Dr. Avishek Mukherjee</h4>
+                            <p style="font-size: 0.8rem; color: var(--gray);">Orthopedic Surgeon</p>
+                        </div>
+                    </div>
+                    <p>Dr. Avishek Mukherjee is a distinguished urologist and uro-oncologist with over two decades of pioneering work in advanced surgical techniques for kidney, bladder, and prostate conditions.</p>
+                </div>
+
+                <div class="sidebar-widget recent-posts">
+                    <h3 class="widget-title">Recent Posts</h3>
+                    <div class="recent-post">
+                        <img src="https://i.ibb.co/PGwJW2dP/b2.jpg" alt="Exercise">
+                        <h4><a href="viewblog2.html">Laser Prostate Surgery: What to Expect</a></h4>
+                    </div>
+                    <div class="recent-post">
+                        <img src="https://i.ibb.co/kPJW7Fd/b3.jpg" alt="Healthy food">
+                        <h4><a href="viewblog3.html">UTIs in Women: Symptoms & Solutions</a></h4>
+                    </div>
+                    <div class="recent-post">
+                        <img src="https://i.ibb.co/tMvfymQF/b4.jpg" alt="Sleep">
+                        <h4><a href="viewblog4.html">BPH (Enlarged Prostate) Treatment Options</a></h4>
+                    </div>
+                </div>
+
+                <!-- <div class="sidebar-widget categories">
+                    <h3 class="widget-title">Categories</h3>
+                    <ul>
+                        <li><a href="#">Nutrition (12)</a></li>
+                        <li><a href="#">Fitness (8)</a></li>
+                        <li><a href="#">Mental Health (5)</a></li>
+                        <li><a href="#">Preventive Care (7)</a></li>
+                        <li><a href="#">Healthy Living (15)</a></li>
+                    </ul>
+                </div> -->
+
+                <div class="sidebar-widget">
+                    <h3 class="widget-title">Newsletter</h3>
+                    <p>Subscribe to get the latest health tips</p>
+                    <form class="newsletter-form">
+                        <input type="text" placeholder="Your Name">
+                        <input type="email" placeholder="Your Email">
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </aside>
+        </article>
+    </main>
+
+    <div id="footer"></div>
+    <script src="/assets/js/script.js"></script>
+    <script src="/assets/js/comp.js"></script>
+</body>
+</html>

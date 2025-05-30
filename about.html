@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Dr. Avishek Mukherjee | Renowned Urosurgeon</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #3a7bd5;
+            --primary-dark: #2c5fb3;
+            --text-color: #333;
+            --light-bg: #f8fafc;
+            --white: #ffffff;
+            --border-radius: 12px;
+            --box-shadow: 0 10px 30px rgba(58, 123, 213, 0.15);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.7;
+            color: var(--text-color);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+        
+        .av-about-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 10px;
+        }
+        
+        .av-hero-section {
+            background: linear-gradient(135deg, #3a7bd5 0%, #00d2ff 100%);
+            color: var(--white);
+            padding: 50px 0;
+            text-align: center;
+        }
+        
+        .av-hero-title {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .av-hero-subtitle {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+        
+        .av-profile-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 60px 0;
+            flex-wrap: wrap;
+        }
+        
+        .av-profile-image {
+            flex: 0 0 45%;
+            max-width: 45%;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .av-profile-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+        
+        .av-profile-image:hover img {
+            transform: scale(1.03);
+        }
+        
+        .av-profile-content {
+            flex: 0 0 50%;
+            max-width: 50%;
+        }
+        
+        .av-section-title {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .av-section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 70px;
+            height: 3px;
+            background: var(--primary-color);
+        }
+        
+        .av-profile-text {
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+        
+        .av-timeline-section {
+            background-color: var(--light-bg);
+            padding: 80px 0;
+        }
+        
+        .av-timeline-container {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .av-timeline-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 50px;
+        }
+        
+        .av-timeline {
+            position: relative;
+        }
+        
+        .av-timeline::before {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background-color: var(--primary-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1px;
+        }
+        
+        .av-timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            margin-bottom: 30px;
+        }
+        
+        .av-timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .av-timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        
+        .av-timeline-content {
+            padding: 30px;
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+        
+        .av-timeline-content::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: var(--white);
+            top: 30px;
+            transform: rotate(45deg);
+            border-right: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .av-timeline-item:nth-child(odd) .av-timeline-content::after {
+            right: -10px;
+        }
+        
+        .av-timeline-item:nth-child(even) .av-timeline-content::after {
+            left: -10px;
+        }
+        
+        .av-timeline-date {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .av-timeline-heading {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--text-color);
+        }
+        
+        .av-timeline-text {
+            font-size: 1rem;
+        }
+        
+        .av-milestones-section {
+            padding: 80px 0;
+        }
+        
+        .av-milestones-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 50px;
+        }
+        
+        .av-milestones-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .av-milestone-card {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--box-shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 4px solid var(--primary-color);
+        }
+        
+        .av-milestone-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(58, 123, 213, 0.2);
+        }
+        
+        .av-milestone-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .av-milestone-heading {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--text-color);
+        }
+        
+        .av-milestone-text {
+            font-size: 1rem;
+        }
+        
+        .av-specialties-section {
+            background-color: var(--light-bg);
+            padding: 80px 0;
+        }
+        
+        .av-specialties-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 50px;
+        }
+        
+        .av-specialties-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .av-specialty-item {
+            margin-bottom: 40px;
+        }
+        
+        .av-specialty-name {
+            font-size: 1.5rem;
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .av-specialty-name i {
+            margin-right: 15px;
+            color: var(--primary-color);
+        }
+        
+        .av-specialty-desc {
+            padding-left: 40px;
+            font-size: 1.05rem;
+        }
+        
+        @media (max-width: 992px) {
+            .av-profile-image,
+            .av-profile-content {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+            
+            .av-profile-image {
+                margin-bottom: 40px;
+            }
+            
+            .av-timeline::before {
+                left: 31px;
+            }
+            
+            .av-timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .av-timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .av-timeline-item:nth-child(odd) .av-timeline-content::after,
+            .av-timeline-item:nth-child(even) .av-timeline-content::after {
+                left: 20px;
+                right: auto;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .av-hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .av-hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .av-section-title {
+                font-size: 1.7rem;
+            }
+            
+            .av-milestones-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .av-profile-section {
+                padding: 40px 0;
+            }
+            
+            .av-timeline-title,
+            .av-milestones-title,
+            .av-specialties-title {
+                font-size: 1.8rem;
+                margin-bottom: 30px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .av-hero-title {
+                font-size: 1.8rem;
+            }
+            
+            .av-section-title {
+                font-size: 1.5rem;
+            }
+            
+            .av-timeline-content {
+                padding: 20px;
+            }
+            
+            .av-milestone-card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+   <div id="nav"></div>
+    <!-- Hero Section -->
+    <!-- <section class="av-hero-section">
+        <div class="av-about-container">
+            <h1 class="av-hero-title">Dr. Avishek Mukherjee</h1>
+            <p class="av-hero-subtitle">Renowned Urosurgeon & Pioneer in Laparoscopic Urological Procedures in Eastern India</p>
+        </div>
+    </section> -->
+
+    <!-- Profile Section -->
+    <section class="av-about-container">
+        <div class="av-profile-section">
+            <div class="av-profile-image">
+                <img src="https://i.ibb.co/PvccRt4Z/mukharji.png" alt="Dr. Avishek Mukherjee">
+            </div>
+            <div class="av-profile-content">
+                <h2 class="av-section-title">About Dr. Avishek</h2>
+                <p class="av-profile-text">Dr. Avishek Mukherjee is one of the foremost practising urosurgeons in Eastern India. Trained at two of India's most prestigious medical institutes – AIIMS New Delhi and PGI Chandigarh – he brings over two decades of expertise in urological care with a rare blend of clinical excellence, innovation, and patient compassion.</p>
+                <p class="av-profile-text">After completing his MCh in Urosurgery at PGI Chandigarh in 2003, Dr. Avishek moved to Kolkata where he worked at Wockhardt Hospital and Kidney Institute alongside legendary surgeons. His journey reflects a commitment to bringing world-class urological care to patients across all economic backgrounds.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="av-timeline-section">
+        <h2 class="av-timeline-title">Professional Journey</h2>
+        <div class="av-timeline-container">
+            <div class="av-timeline">
+                <div class="av-timeline-item">
+                    <div class="av-timeline-content">
+                        <div class="av-timeline-date">1991 - 1995</div>
+                        <h3 class="av-timeline-heading">MBBS</h3>
+                        <p class="av-timeline-text">All India Institute of Medical Sciences (AIIMS), New Delhi</p>
+                    </div>
+                </div>
+                <div class="av-timeline-item">
+                    <div class="av-timeline-content">
+                        <div class="av-timeline-date">1996</div>
+                        <h3 class="av-timeline-heading">Internship</h3>
+                        <p class="av-timeline-text">AIIMS, New Delhi</p>
+                    </div>
+                </div>
+                <div class="av-timeline-item">
+                    <div class="av-timeline-content">
+                        <div class="av-timeline-date">1997 - 2000</div>
+                        <h3 class="av-timeline-heading">MS (Surgery)</h3>
+                        <p class="av-timeline-text">AIIMS, New Delhi</p>
+                    </div>
+                </div>
+                <div class="av-timeline-item">
+                    <div class="av-timeline-content">
+                        <div class="av-timeline-date">2000 - 2003</div>
+                        <h3 class="av-timeline-heading">MCh (Urosurgery)</h3>
+                        <p class="av-timeline-text">Postgraduate Institute of Medical Education and Research (PGI), Chandigarh</p>
+                    </div>
+                </div>
+                <div class="av-timeline-item">
+                    <div class="av-timeline-content">
+                        <div class="av-timeline-date">2003 - 2009</div>
+                        <h3 class="av-timeline-heading">Wockhardt Hospital & Kidney Institute</h3>
+                        <p class="av-timeline-text">Worked with eminent surgeons including Dr. Shibaji Basu, Dr. Kalyan Sarkar, Dr. P.K. Mishra, Dr. Amlan Chakraborty, and Dr. R.K. Gopala Krishna</p>
+                    </div>
+                </div>
+                <div class="av-timeline-item">
+                    <div class="av-timeline-content">
+                        <div class="av-timeline-date">2009 - 2010</div>
+                        <h3 class="av-timeline-heading">Anandoloke Hospital</h3>
+                    </div>
+                </div>
+                <div class="av-timeline-item">
+                    <div class="av-timeline-content">
+                        <div class="av-timeline-date">2010 - 2016</div>
+                        <h3 class="av-timeline-heading">Ruby General Hospital</h3>
+                    </div>
+                </div>
+                <div class="av-timeline-item">
+                    <div class="av-timeline-content">
+                        <div class="av-timeline-date">2007 - Present</div>
+                        <h3 class="av-timeline-heading">NKPC Kidney Clinic</h3>
+                        <p class="av-timeline-text">Started as a day care center in 2007, expanded to a super-specialized Kidney hospital in 2016 with the mission to provide world-class care to all patients irrespective of economic background</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Milestones Section -->
+    <section class="av-milestones-section">
+        <h2 class="av-milestones-title">Career Milestones</h2>
+        <div class="av-milestones-grid">
+            <div class="av-milestone-card">
+                <div class="av-milestone-icon">
+                    <i class="fas fa-award"></i>
+                </div>
+                <h3 class="av-milestone-heading">Phadke Scholar (2002-2003)</h3>
+                <p class="av-milestone-text">Awarded as the All India best MCh student by Urology Society of India</p>
+            </div>
+            <div class="av-milestone-card">
+                <div class="av-milestone-icon">
+                    <i class="fas fa-user-md"></i>
+                </div>
+                <h3 class="av-milestone-heading">Fellowship in Andrology</h3>
+                <p class="av-milestone-text">Under renowned andrologist Dr. Rupin S. Shah</p>
+            </div>
+            <div class="av-milestone-card">
+                <div class="av-milestone-icon">
+                    <i class="fas fa-procedures"></i>
+                </div>
+                <h3 class="av-milestone-heading">Pioneer in Penile Implant Surgery</h3>
+                <p class="av-milestone-text">First to perform this procedure for erectile dysfunction in Eastern India</p>
+            </div>
+            <div class="av-milestone-card">
+                <div class="av-milestone-icon">
+                    <i class="fas fa-laptop-medical"></i>
+                </div>
+                <h3 class="av-milestone-heading">Laparoscopic Urosurgery Pioneer</h3>
+                <p class="av-milestone-text">Performed first laparoscopic radical prostate cancer surgery (2004) and nephron-sparing surgery for kidney cancer (2005) in Eastern India</p>
+            </div>
+            <div class="av-milestone-card">
+                <div class="av-milestone-icon">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <h3 class="av-milestone-heading">Laser Surgery Expert</h3>
+                <p class="av-milestone-text">Pioneer in laser surgery for kidney and ureter stone disease in Eastern India</p>
+            </div>
+            <div class="av-milestone-card">
+                <div class="av-milestone-icon">
+                    <i class="fas fa-hand-holding-medical"></i>
+                </div>
+                <h3 class="av-milestone-heading">Transplant Surgery</h3>
+                <p class="av-milestone-text">Performed first laparoscopic donor nephrectomy for kidney transplantation at Wockhardt Hospital in collaboration with Dr. Amlan Chakraborty (2005)</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Specialties Section -->
+    <section class="av-specialties-section">
+        <h2 class="av-specialties-title">Laparoscopic Reconstructive Surgery</h2>
+        <div class="av-specialties-container">
+            <div class="av-specialty-item">
+                <h3 class="av-specialty-name">   Laparoscopic Pyeloplasty</h3>
+                <p class="av-specialty-desc">When the kidney cannot drain into the ureter efficiently due to congenital kidney ureter obstruction, we reconstruct the ureter with complete laparoscopic reconstruction.</p>
+            </div>
+            <div class="av-specialty-item">
+                <h3 class="av-specialty-name"> Laparoscopic Ureter Reimplantation</h3>
+                <p class="av-specialty-desc">When the ureter is damaged or forms a constriction resulting in obstruction of the kidney, we use a bladder flap to save the kidney and replace the ureter by laparoscopy.</p>
+            </div>
+            <div class="av-specialty-item">
+                <h3 class="av-specialty-name"> Laparoscopic Vesicovaginal Fistula Repair</h3>
+                <p class="av-specialty-desc">When accidentally the bladder perforates into the vagina causing urine leakage, we use laparoscopy to repair the bladder and save the patient from severe morbidity.</p>
+            </div>
+        </div>
+    </section>
+<div id="whatsapp"></div>
+<div id="footer"></div>
+<script src="assets/js/script.js"></script>
+ <script src="assets/js/comp.js"></script>
+</body>
+</html>

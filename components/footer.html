@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Professional Footer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Modern CSS variables for medical theme */
+        :root {
+            --med-primary: #005b96;
+            --med-primary-dark: #003d66;
+            --med-accent: #e67e22;
+            --med-white: #ffffff;
+            --med-light-bg: #f8f9fa;
+            --med-dark-text: #2c3e50;
+            --med-medium-text: #6c757d;
+            --med-light-text: #95a5a6;
+            --med-border: rgba(0, 0, 0, 0.1);
+            --med-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --med-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            --med-section-gap: 50px;
+        }
+
+        /* Base Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+        }
+
+        /* Footer Structure */
+        .med-footer {
+            background-color: var(--med-white);
+            color: var(--med-dark-text);
+            padding: 80px 0 0;
+            box-shadow: var(--med-shadow);
+            border-top: 1px solid var(--med-border);
+            position: relative;
+        }
+
+        .med-footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--med-section-gap);
+        }
+
+        /* Brand Section */
+        .med-footer-brand {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .med-footer-logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+            text-decoration: none;
+        }
+
+        .med-footer-logo {
+            width: 100%;
+            height: 80%;
+            /* background-color: var(--med-primary); */
+            /* border-radius: 50%; */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            /* border: 3px solid rgba(255, 255, 255, 0.2); */
+            /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); */
+            transition: var(--med-transition);
+        }
+
+        .med-footer-logo:hover {
+            transform: rotate(5deg) scale(1.05);
+        }
+
+        .med-footer-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .med-footer-brand-text h2 {
+            font-size: 22px;
+            color: var(--med-primary);
+            font-weight: 700;
+            margin-bottom: 6px;
+            line-height: 1.3;
+        }
+
+        .med-footer-brand-text p {
+            font-size: 14px;
+            color: var(--med-medium-text);
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        .med-footer-social {
+            display: flex;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        .med-footer-social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--med-light-bg);
+            color: var(--med-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--med-transition);
+            font-size: 16px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .med-footer-social-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--med-primary), var(--med-primary-dark));
+            opacity: 0;
+            transition: var(--med-transition);
+        }
+
+        .med-footer-social-link:hover {
+            color: var(--med-white);
+            transform: translateY(-3px);
+        }
+
+        .med-footer-social-link:hover::before {
+            opacity: 1;
+        }
+
+        .med-footer-social-link i {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Footer Sections */
+        .med-footer-section {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .med-footer-heading {
+            font-size: 18px;
+            color: var(--med-primary);
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 12px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            width: 100%;
+        }
+
+        .med-footer-heading::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(to right, var(--med-primary), var(--med-accent));
+            border-radius: 3px;
+        }
+
+        /* Navigation Links */
+        .med-footer-nav {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+        }
+
+        .med-footer-nav-item {
+            margin-bottom: 15px;
+        }
+
+        .med-footer-nav-link {
+            color: var(--med-medium-text);
+            text-decoration: none;
+            font-size: 15px;
+            transition: var(--med-transition);
+            display: inline-block;
+            position: relative;
+            font-weight: 500;
+            padding: 2px 0;
+        }
+
+        .med-footer-nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--med-accent);
+            transition: var(--med-transition);
+        }
+
+        .med-footer-nav-link:hover {
+            color: var(--med-primary);
+            padding-left: 8px;
+        }
+
+        .med-footer-nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Contact Info */
+        .med-footer-contact {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+        }
+
+        .med-footer-contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            color: var(--med-medium-text);
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .med-footer-contact-icon {
+            color: var(--med-primary);
+            margin-right: 15px;
+            margin-top: 3px;
+            font-size: 16px;
+            min-width: 20px;
+        }
+
+        .med-footer-contact-text {
+            flex: 1;
+        }
+
+        /* Newsletter */
+        .med-footer-newsletter {
+            width: 100%;
+        }
+
+        .med-footer-newsletter-text {
+            color: var(--med-medium-text);
+            font-size: 15px;
+            margin-bottom: 25px;
+            line-height: 1.6;
+            font-weight: 500;
+        }
+
+        .med-footer-subscribe {
+            display: flex;
+            width: 100%;
+            max-width: 350px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--med-shadow);
+        }
+
+        .med-footer-email {
+            flex: 1;
+            padding: 15px 20px;
+            border: none;
+            outline: none;
+            font-size: 14px;
+            color: var(--med-dark-text);
+            background-color: var(--med-light-bg);
+        }
+
+        .med-footer-email::placeholder {
+            color: var(--med-light-text);
+            font-weight: 400;
+        }
+
+        .med-footer-submit {
+            background: linear-gradient(to right, var(--med-primary), var(--med-primary-dark));
+            color: var(--med-white);
+            border: none;
+            padding: 0 25px;
+            cursor: pointer;
+            transition: var(--med-transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        .med-footer-submit:hover {
+            background: linear-gradient(to right, var(--med-primary-dark), var(--med-primary));
+            transform: translateX(3px);
+        }
+
+        /* Copyright Bar */
+        .med-footer-copyright {
+            background: linear-gradient(to right, var(--med-primary), var(--med-primary-dark));
+            padding: 25px 0;
+            margin-top: 80px;
+        }
+
+        .med-footer-copyright-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .med-footer-copyright-text {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 14px;
+            margin-bottom: 15px;
+            font-weight: 400;
+        }
+
+        .med-footer-highlight {
+            color: var(--med-white);
+            font-weight: 600;
+        }
+
+        .med-footer-legal {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .med-footer-legal-link {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            font-size: 14px;
+            transition: var(--med-transition);
+            position: relative;
+        }
+
+        .med-footer-legal-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: var(--med-white);
+            transition: var(--med-transition);
+        }
+
+        .med-footer-legal-link:hover {
+            color: var(--med-white);
+        }
+
+        .med-footer-legal-link:hover::after {
+            width: 100%;
+        }
+
+        .med-footer-divider {
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 12px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1199px) {
+            .med-footer-container {
+                padding: 0 30px;
+            }
+            
+            .med-footer-copyright-container {
+                padding: 0 30px;
+            }
+        }
+
+        @media (max-width: 991px) {
+            .med-footer {
+                padding: 60px 0 0;
+            }
+            
+            .med-footer-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 40px;
+            }
+            
+            .med-footer-brand {
+                grid-column: 1 / -1;
+                align-items: center;
+                text-align: center;
+            }
+            
+            .med-footer-logo-container {
+                justify-content: center;
+            }
+            
+            .med-footer-social {
+                justify-content: center;
+            }
+            
+            .med-footer-subscribe {
+                max-width: 100%;
+            }
+            
+            .med-footer-copyright {
+                margin-top: 60px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .med-footer-container {
+                grid-template-columns: 1fr;
+                padding: 0 25px;
+                gap: 45px;
+            }
+            
+            .med-footer-section {
+                align-items: center;
+                text-align: center;
+            }
+            
+            .med-footer-heading::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .med-footer-contact-item {
+                justify-content: center;
+                text-align: center;
+            }
+            
+            .med-footer-subscribe {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 575px) {
+            .med-footer {
+                padding: 50px 0 0;
+            }
+            
+            .med-footer-container {
+                padding: 0 20px;
+                gap: 40px;
+            }
+            
+            .med-footer-logo {
+                width: 65px;
+                height: 65px;
+            }
+            
+            .med-footer-social-link {
+                width: 38px;
+                height: 38px;
+                font-size: 15px;
+            }
+            
+            .med-footer-copyright {
+                padding: 20px 0;
+            }
+            
+            .med-footer-legal {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 479px) {
+            .med-footer-container {
+                padding: 0 15px;
+                gap: 35px;
+            }
+            
+            .med-footer-heading {
+                font-size: 17px;
+                margin-bottom: 20px;
+            }
+            
+            .med-footer-nav-item {
+                margin-bottom: 12px;
+            }
+            
+            .med-footer-contact-item {
+                margin-bottom: 18px;
+                font-size: 14px;
+            }
+            
+            .med-footer-subscribe {
+                flex-direction: column;
+                max-width: 100%;
+                border-radius: 8px;
+                overflow: visible;
+                box-shadow: none;
+                gap: 12px;
+            }
+            
+            .med-footer-email,
+            .med-footer-submit {
+                width: 100%;
+                border-radius: 8px;
+            }
+            
+            .med-footer-submit {
+                padding: 14px;
+            }
+        }
+
+        @media (max-width: 359px) {
+            .med-footer {
+                padding: 45px 0 0;
+            }
+            
+            .med-footer-logo {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .med-footer-heading {
+                font-size: 16px;
+            }
+            
+            .med-footer-nav-link,
+            .med-footer-contact-item {
+                font-size: 14px;
+            }
+            
+            .med-footer-copyright-text {
+                font-size: 13px;
+                line-height: 1.5;
+            }
+            
+            .med-footer-legal {
+                gap: 10px;
+            }
+            
+            .med-footer-divider {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Professional Medical Footer -->
+    <footer class="med-footer">
+        <div class="med-footer-container">
+            <!-- Brand Column -->
+            <div class="med-footer-brand">
+                <a href="index.html" class="med-footer-logo-container">
+                    <div class="med-footer-logo">
+                        <img src="https://i.ibb.co/VXYfNSv/1.png" alt="Dr. Avishek Mukherjee Logo">
+                    </div>
+                    <!-- <div class="med-footer-brand-text">
+                        <h2>Dr. Avishek Mukherjee</h2>
+                        <p>Consultant Orthopaedics & Spine Surgeon</p>
+                    </div> -->
+                </a>
+                
+                <div class="med-footer-social">
+                    <a href="https://www.youtube.com/" class="med-footer-social-link" aria-label="YouTube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="https://www.instagram.com/" class="med-footer-social-link" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>      
+                    <a href="https://www.facebook.com/" class="med-footer-social-link" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Quick Links Column -->
+            <div class="med-footer-section">
+                <h3 class="med-footer-heading">Quick Links</h3>
+                <ul class="med-footer-nav">
+                    <li class="med-footer-nav-item"><a href="index.html" class="med-footer-nav-link">Home</a></li>
+                    <li class="med-footer-nav-item"><a href="about.html" class="med-footer-nav-link">About Us</a></li>
+                    <li class="med-footer-nav-item"><a href="https://www.nkpc.in/" class="med-footer-nav-link">NKPC Hospital</a></li>
+                    <li class="med-footer-nav-item"><a href="doc-says.html" class="med-footer-nav-link">DOC Says</a></li>
+                    <li class="med-footer-nav-item"><a href="blogging.html" class="med-footer-nav-link">Blog</a></li>
+                    <li class="med-footer-nav-item"><a href="videosection.html" class="med-footer-nav-link">Surgery Videos</a></li>
+                    <li class="med-footer-nav-item"><a href="contact.html" class="med-footer-nav-link">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Info Column -->
+            <div class="med-footer-section">
+                <h3 class="med-footer-heading">Contact Info</h3>
+                <ul class="med-footer-contact">
+                    <li class="med-footer-contact-item">
+                        <i class="fas fa-map-marker-alt med-footer-contact-icon"></i>
+                        <span class="med-footer-contact-text">1212 Kalikapur, Purbalok, Kolkata, West Bengal 700099</span>
+                    </li>
+                    <li class="med-footer-contact-item">
+                        <i class="fas fa-envelope med-footer-contact-icon"></i>
+                        <span class="med-footer-contact-text">nationalkidney99@gmail.com</span>
+                    </li>
+                    <li class="med-footer-contact-item">
+                        <i class="fas fa-phone-alt med-footer-contact-icon"></i>
+                        <span class="med-footer-contact-text">08420017061</span>
+                    </li>
+                    <li class="med-footer-contact-item">
+                        <i class="fas fa-clock med-footer-contact-icon"></i>
+                        <span class="med-footer-contact-text">24/7 Monday to Sunday</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Newsletter Column -->
+            <div class="med-footer-section">
+                <h3 class="med-footer-heading">Health Updates</h3>
+                <p class="med-footer-newsletter-text">Subscribe to receive the latest health tips and medical advice directly to your inbox.</p>
+                <form class="med-footer-subscribe">
+                    <input type="email" placeholder="Your email address" class="med-footer-email" required>
+                    <button type="submit" class="med-footer-submit">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Copyright Bar -->
+        <div class="med-footer-copyright">
+            <div class="med-footer-copyright-container">
+                <p class="med-footer-copyright-text">&copy; 2025 <span class="med-footer-highlight">Dr. Avishek Mukherjee</span>. All Rights Reserved.</p>
+                <div class="med-footer-legal">
+                    <!-- <a href="privacy.html" class="med-footer-legal-link">Privacy Policy</a>
+                    <span class="med-footer-divider">|</span>
+                    <a href="terms.html" class="med-footer-legal-link">Terms of Service</a> -->
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

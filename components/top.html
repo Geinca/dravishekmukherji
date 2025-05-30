@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor's Contact Bar</title>
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        /* Top bar styles */
+        .contact-header {
+            background-color: #0a3d62;
+            color: white;
+            padding: 12px 0;
+            font-size: 14px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .contact-details, .social-media {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .contact-item, .hours-info {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .contact-item a:hover {
+            color: #3fc1c9;
+        }
+        
+        .contact-icon {
+            color: #3fc1c9;
+            font-size: 15px;
+            min-width: 18px;
+            text-align: center;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 12px;
+           
+        }
+        
+        .social-icon {
+            color: white;
+            background: rgba(255,255,255,0.1);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            background: #3fc1c9;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 992px) {
+            .contact-header {
+               display: none;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="contact-header">
+        <div class="contact-container" style="margin-left: 320px;">
+    <div class="contact-details-wrapper">
+        <div class="contact-details">
+            <div class="contact-item">
+                <span class="contact-icon"><i class="fas fa-phone-alt"></i></span>
+                <a href="tel:08420017061">08420017061</a>
+            </div>
+            <div class="contact-item">
+                <span class="contact-icon"><i class="fas fa-envelope"></i></span>
+                <a href="mailto:nationalkidney99@gmail.com">nationalkidney99@gmail.com</a>
+            </div>
+            <div class="hours-info">
+                <span class="contact-icon"><i class="fas fa-clock"></i></span>
+                <span>24/7 Emergency Services</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="social-media" style="margin-left: 350px;">
+        <div class="social-icons">
+            <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+    </div>
+</div>
+
+    </div>
+</body>
+</html>

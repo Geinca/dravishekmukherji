@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Hero Carousel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        /* Hero Carousel Container */
+        .hero-carousel {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+        
+        /* Slides Container */
+        .carousel-slides {
+            display: flex;
+            width: 100%;
+            transition: transform 0.5s ease-in-out;
+        }
+        
+        /* Individual Slide */
+        .carousel-slide {
+            min-width: 100%;
+            position: relative;
+        }
+        
+        /* Image Styling - Maintains aspect ratio */
+        .carousel-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: contain; /* Ensures full image is visible */
+            background-color: #f5f5f5; /* Fallback background */
+        }
+        
+        /* Navigation Arrows */
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            /* background-color: rgba(0, 0, 0, 0.5); */
+            background-color: transparent;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s ease;
+            border: none;
+        }
+        
+        .carousel-arrow:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        
+        .arrow-left {
+            left: 20px;
+        }
+        
+        .arrow-right {
+            right: 20px;
+        }
+        
+        /* Navigation Dots */
+        .carousel-dots {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+        
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+        }
+        
+        .carousel-dot.active {
+            background-color: white;
+            transform: scale(1.2);
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .carousel-arrow {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+            
+            .arrow-left {
+                left: 10px;
+            }
+            
+            .arrow-right {
+                right: 10px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .carousel-arrow {
+                width: 36px;
+                height: 36px;
+            }
+            
+            .carousel-dots {
+                bottom: 15px;
+            }
+            
+            .carousel-dot {
+                width: 10px;
+                height: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero-carousel">
+        <div class="carousel-slides">
+            <div class="carousel-slide">
+                <img src="images/h111.jpeg" alt="Medical Facility" class="carousel-image">
+            </div>
+            <div class="carousel-slide">
+                <img src="images/h22.jpg" alt="Doctor Consultation" class="carousel-image">
+            </div>
+        </div>
+        
+        <button class="carousel-arrow arrow-left" aria-label="Previous slide">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="carousel-arrow arrow-right" aria-label="Next slide">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+        
+        <div class="carousel-dots">
+            <button class="carousel-dot active" data-index="0" aria-label="Go to slide 1"></button>
+            <button class="carousel-dot" data-index="1" aria-label="Go to slide 2"></button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const slidesContainer = document.querySelector('.carousel-slides');
+            const slides = document.querySelectorAll('.carousel-slide');
+            const dots = document.querySelectorAll('.carousel-dot');
+            const prevBtn = document.querySelector('.arrow-left');
+            const nextBtn = document.querySelector('.arrow-right');
+            let currentIndex = 0;
+            let slideInterval;
+            
+            // Initialize carousel
+            function goToSlide(index) {
+                slidesContainer.style.transform = `translateX(-${index * 100}%)`;
+                currentIndex = index;
+                
+                // Update dots
+                dots.forEach((dot, i) => {
+                    dot.classList.toggle('active', i === index);
+                });
+            }
+            
+            // Next slide
+            function nextSlide() {
+                const newIndex = (currentIndex + 1) % slides.length;
+                goToSlide(newIndex);
+            }
+            
+            // Previous slide
+            function prevSlide() {
+                const newIndex = (currentIndex - 1 + slides.length) % slides.length;
+                goToSlide(newIndex);
+            }
+            
+            // Auto-rotation
+            function startAutoSlide() {
+                slideInterval = setInterval(nextSlide, 5000);
+            }
+            
+            function stopAutoSlide() {
+                clearInterval(slideInterval);
+            }
+            
+            // Event listeners
+            prevBtn.addEventListener('click', function() {
+                prevSlide();
+                stopAutoSlide();
+                startAutoSlide();
+            });
+            
+            nextBtn.addEventListener('click', function() {
+                nextSlide();
+                stopAutoSlide();
+                startAutoSlide();
+            });
+            
+            dots.forEach(dot => {
+                dot.addEventListener('click', function() {
+                    const index = parseInt(this.getAttribute('data-index'));
+                    goToSlide(index);
+                    stopAutoSlide();
+                    startAutoSlide();
+                });
+            });
+            
+            // Touch support for mobile
+            let touchStartX = 0;
+            let touchEndX = 0;
+            
+            slidesContainer.addEventListener('touchstart', e => {
+                touchStartX = e.changedTouches[0].clientX;
+                stopAutoSlide();
+            }, { passive: true });
+            
+            slidesContainer.addEventListener('touchend', e => {
+                touchEndX = e.changedTouches[0].clientX;
+                handleSwipe();
+                startAutoSlide();
+            }, { passive: true });
+            
+            function handleSwipe() {
+                const difference = touchStartX - touchEndX;
+                if (difference > 50) nextSlide(); // Swipe left
+                if (difference < -50) prevSlide(); // Swipe right
+            }
+            
+            // Initialize
+            goToSlide(0);
+            startAutoSlide();
+            
+            // Pause on hover
+            slidesContainer.addEventListener('mouseenter', stopAutoSlide);
+            slidesContainer.addEventListener('mouseleave', startAutoSlide);
+        });
+    </script>
+</body>
+</html>

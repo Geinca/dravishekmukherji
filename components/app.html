@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Appointment</title>
+    <link rel="stylesheet" href="/assets/css/footer.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+       
+
+        .appointment-container {
+            display: flex;
+            justify-content: center;
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #e0f0ff, #ffffff);
+        }
+
+        .appointment-content {
+            display: flex;
+            flex-direction: row;
+            max-width: 1200px;
+            width: 100%;
+            background-color: #fff;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+
+        .appointment-image {
+            width: 50%;
+            object-fit: cover;
+        }
+
+        .appointment-wrapper {
+            width: 50%;
+            padding: 50px 40px;
+        }
+
+        .appointment-heading {
+            font-size: 32px;
+            font-weight: 600;
+            color: #0764a3;
+            margin-bottom: 10px;
+        }
+
+        .appointment-subtitle {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .appointment-form-box {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .appointment-row {
+            display: flex;
+            gap: 15px;
+        }
+
+        .appointment-field {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .appointment-field input,
+        .appointment-field select {
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border 0.3s ease;
+        }
+
+        .appointment-field textarea {
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border 0.3s ease;
+        }
+
+
+        .appointment-field input:focus,
+        .appointment-field select:focus {
+            border-color: #0764a3;
+            outline: none;
+        }
+
+        .appointment-time-slot {
+            margin-top: 20px;
+        }
+
+        .time-slot-label {
+            font-weight: 600;
+            color: #0764a3;
+            margin-bottom: 10px;
+        }
+
+        .time-slot-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .time-slot-options input[type="radio"] {
+            display: none;
+        }
+
+        .time-slot-options label {
+            padding: 10px 16px;
+            border: 2px solid #0764a3;
+            border-radius: 6px;
+            color: #0764a3;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .time-slot-options input[type="radio"]:checked + label {
+            background: #0764a3;
+            color: #fff;
+            box-shadow: 0 4px 12px rgba(7, 100, 163, 0.2);
+        }
+
+        .appointment-submit-btn {
+            margin-top: 30px;
+            padding: 14px;
+            background: #0764a3;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .appointment-submit-btn:hover {
+            background: #014773;
+        }
+
+        @media (max-width: 768px) {
+            .appointment-content {
+                flex-direction: column;
+            }
+
+            .appointment-image,
+            .appointment-wrapper {
+                width: 100%;
+            }
+
+            .appointment-wrapper {
+                padding: 30px;
+            }
+
+            .appointment-row {
+                flex-direction: column;
+            }
+
+            .time-slot-options {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="appointment-container">
+        <div class="appointment-content">
+            <img src="images/3951637.jpg" alt="Doctor Appointment" class="appointment-image">
+            <div class="appointment-wrapper">
+                <h2 class="appointment-heading">Book an Appointment</h2>
+                <p class="appointment-subtitle">Schedule your visit with our expert doctors</p>
+
+                <form class="appointment-form-box">
+                    <div class="appointment-row">
+                        <div class="appointment-field">
+                            <input type="text" placeholder="First Name" required>
+                        </div>
+                        <div class="appointment-field">
+                            <input type="text" placeholder="Last Name" required>
+                        </div>
+                    </div>
+
+                    <div class="appointment-row">
+                        <div class="appointment-field">
+                            <input type="email" placeholder="Email" required>
+                        </div>
+                        <div class="appointment-field">
+                            <input type="tel" placeholder="Phone Number" required>
+                        </div>
+                    </div>
+
+                    <div class="appointment-row">
+                        <div class="appointment-field">
+                            <select required>
+                                <option value="" disabled selected>Select Gender</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="appointment-field">
+                        <input type="date" required>
+                    </div>
+
+                    <div class="appointment-time-slot">
+                        <p class="time-slot-label">Select a Time Slot</p>
+                        <div class="time-slot-options">
+                            <input type="radio" id="time-9am" name="time-slot" value="9:00 AM">
+                            <label for="time-9am">9:00 AM</label>
+
+                            <input type="radio" id="time-10am" name="time-slot" value="10:00 AM">
+                            <label for="time-10am">10:00 AM</label>
+
+                            <input type="radio" id="time-11am" name="time-slot" value="11:00 AM">
+                            <label for="time-11am">11:00 AM</label>
+
+                            <input type="radio" id="time-2pm" name="time-slot" value="2:00 PM">
+                            <label for="time-2pm">2:00 PM</label>
+
+                            <input type="radio" id="time-3pm" name="time-slot" value="3:00 PM">
+                            <label for="time-3pm">3:00 PM</label>
+
+                            <input type="radio" id="time-4pm" name="time-slot" value="4:00 PM">
+                            <label for="time-4pm">4:00 PM</label>
+                        </div>
+                    </div>
+
+
+
+                      <div class="appointment-row">
+                        <div class="appointment-field">
+                           <textarea id="message" name="message" rows="5" placeholder="Tell us about your ..." required></textarea>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+                    <button type="submit" class="appointment-submit-btn">Book Appointment</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    const appointmentForm = document.querySelector('.appointment-form-box');
+    
+    appointmentForm.addEventListener('submit', function(e) {
+        e.preventDefault(); // Prevent default form submission
+        
+        // Collect form data
+        const formData = {
+            firstName: appointmentForm.querySelector('input[type="text"]:nth-of-type(1)').value,
+            lastName: appointmentForm.querySelector('input[type="text"]:nth-of-type(2)').value,
+            email: appointmentForm.querySelector('input[type="email"]').value,
+            phone: appointmentForm.querySelector('input[type="tel"]').value,
+            gender: appointmentForm.querySelector('select').value,
+            date: appointmentForm.querySelector('input[type="date"]').value,
+            timeSlot: appointmentForm.querySelector('input[name="time-slot"]:checked')?.value || "Not selected",
+            message: appointmentForm.querySelector('textarea').value
+        };
+
+        // Format WhatsApp message
+        const whatsappMessage = 
+            `*New Appointment Request*%0A%0A` +
+            `*Name:* ${formData.firstName} ${formData.lastName}%0A` +
+            `*Email:* ${formData.email}%0A` +
+            `*Phone:* ${formData.phone}%0A` +
+            `*Gender:* ${formData.gender}%0A` +
+            `*Date:* ${formData.date}%0A` +
+            `*Time Slot:* ${formData.timeSlot}%0A` +
+            `*Message:* ${formData.message}`;
+
+        // Replace with your WhatsApp number (include country code, remove +, 0, or -)
+        const whatsappNumber = '918917532623'; // Example: India (91) + 9876543210
+        
+        // Open WhatsApp with prefilled message
+        window.open(`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`, '_blank');
+        
+        // Optional: Show confirmation
+        alert("Appointment details sent to WhatsApp!");
+    });
+});
+</script>
+</body>
+</html>

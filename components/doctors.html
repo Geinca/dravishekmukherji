@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NKPC Kidney Clinic - Our Doctors</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --nkpc-primary: #0066cc;
+            --nkpc-secondary: #00a0e1;
+            --nkpc-accent: #ff6b6b;
+            --nkpc-dark: #2c3e50;
+            --nkpc-light: #f8f9fa;
+        }
+        
+     
+        
+        .nkpc-doctors-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .nkpc-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .nkpc-header h1 {
+            font-size: 36px;
+            margin-bottom: 15px;
+            background: linear-gradient(to right, var(--nkpc-primary), var(--nkpc-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .nkpc-header p {
+            color: #666;
+            font-size: 18px;
+        }
+        
+        /* Specialty Accordion */
+        .nkpc-specialty {
+            margin-bottom: 15px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .nkpc-specialty:hover {
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        }
+        
+        .nkpc-specialty summary {
+            background: linear-gradient(to right, var(--nkpc-primary), var(--nkpc-secondary));
+            color: white;
+            padding: 18px 25px;
+            font-size: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            position: relative;
+            list-style: none;
+            transition: all 0.3s ease;
+        }
+        
+        .nkpc-specialty summary::-webkit-details-marker {
+            display: none;
+        }
+        
+        .nkpc-specialty summary::after {
+            content: '+';
+            position: absolute;
+            right: 25px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 24px;
+            transition: all 0.3s ease;
+        }
+        
+        .nkpc-specialty[open] summary::after {
+            content: '-';
+        }
+        
+        .nkpc-specialty[open] summary {
+            background: linear-gradient(to right, var(--nkpc-secondary), var(--nkpc-primary));
+        }
+        
+        .nkpc-doctors-list {
+            background-color: white;
+            padding: 0;
+        }
+        
+        .nkpc-doctor-card {
+            padding: 20px 25px;
+            border-bottom: 1px solid #eee;
+            transition: all 0.3s ease;
+        }
+        
+        .nkpc-doctor-card:last-child {
+            border-bottom: none;
+        }
+        
+        .nkpc-doctor-card:hover {
+            background-color: #f5f9ff;
+        }
+        
+        .nkpc-doctor-name {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--nkpc-dark);
+            margin-bottom: 5px;
+        }
+        
+        .nkpc-doctor-qualification {
+            color: var(--nkpc-primary);
+            font-size: 14px;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .nkpc-doctor-specialization {
+            font-size: 15px;
+            color: #555;
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+        
+        .nkpc-doctor-timing {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            color: #666;
+            margin-top: 10px;
+        }
+        
+        .nkpc-doctor-timing i {
+            margin-right: 8px;
+            color: var(--nkpc-secondary);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nkpc-header h1 {
+                font-size: 30px;
+            }
+            
+            .nkpc-specialty summary {
+                font-size: 18px;
+                padding: 15px 20px;
+            }
+            
+            .nkpc-doctor-card {
+                padding: 15px 20px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            body {
+                padding: 15px;
+            }
+            
+            .nkpc-header h1 {
+                font-size: 26px;
+            }
+            
+            .nkpc-header p {
+                font-size: 16px;
+            }
+            
+            .nkpc-doctor-name {
+                font-size: 16px;
+            }
+            
+            .nkpc-doctor-qualification {
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="nkpc-doctors-container">
+        <div class="nkpc-header">
+            <h1>Our Expert Doctors</h1>
+            <p>Meet our team of highly qualified specialists dedicated to your care</p>
+        </div>
+        
+        <!-- UROLOGIST -->
+        <details class="nkpc-specialty">
+            <summary>UROLOGIST</summary>
+            <div class="nkpc-doctors-list">
+                <div class="nkpc-doctor-card">
+                    <h3 class="nkpc-doctor-name">DR. AVISHEK MUKHERJEE</h3>
+                    <div class="nkpc-doctor-qualification">MBBS (AIIMS), MS (AIIMS), MCH (UROLOGY PGI CHANDIGARH)</div>
+                    <div class="nkpc-doctor-specialization">Senior consultant uro surgeon and minimal invasive URO-CANCER SURGEON, ADVANCED LAPAROSCOPIC SURGEON</div>
+                    <div class="nkpc-doctor-timing"><i class="fas fa-clock"></i> MON-SAT: 11:00 AM - 2:00 PM</div>
+                </div>
+                
+                <div class="nkpc-doctor-card">
+                    <h3 class="nkpc-doctor-name">DR MALAY KUMAR BERA</h3>
+                    <div class="nkpc-doctor-qualification">MS, MCH (PROFESSOR OF UROLOGY AND TRANSPLANT SURGERY)</div>
+                    <div class="nkpc-doctor-timing"><i class="fas fa-clock"></i> TUESDAY & SATURDAY: 5:00 PM - 6:00 PM</div>
+                </div>
+                
+                <div class="nkpc-doctor-card">
+                    <h3 class="nkpc-doctor-name">DR. ANURAG CHATTERJEE</h3>
+                    <div class="nkpc-doctor-qualification">MBBS, MS-GENERAL SURGERY, MCH-UROLOGY/GENITO</div>
+                    <div class="nkpc-doctor-timing"><i class="fas fa-clock"></i> BY APPOINTMENT</div>
+                </div>
+            </div>
+        </details>
+        
+        <!-- KIDNEY TRANSPLANT -->
+        <details class="nkpc-specialty">
+            <summary>KIDNEY TRANSPLANT</summary>
+            <div class="nkpc-doctors-list">
+                <div class="nkpc-doctor-card">
+                    <h3 class="nkpc-doctor-name">DR. AVISHEK MUKHERJEE</h3>
+                    <div class="nkpc-doctor-qualification">MBBS (AIIMS), MS (AIIMS), MCH PGI-CHANDIGARH</div>
+                    <div class="nkpc-doctor-specialization">CHIEF TRANSPLANT SURGEON</div>
+                </div>
+                
+                <div class="nkpc-doctor-card">
+                    <h3 class="nkpc-doctor-name">DR. PROF MALAY KR BERA</h3>
+                    <div class="nkpc-doctor-qualification">MBBS, MS Surgery, DMRT, MCh Urology, FRS</div>
+                </div>
+                
+                <div class="nkpc-doctor-card">
+                    <h3 class="nkpc-doctor-name">DR. SANDIP PRAMANIK</h3>
+                    <div class="nkpc-doctor-qualification">MS, MCh</div>
+                </div>
+                
+                <div class="nkpc-doctor-card">
+                    <h3 class="nkpc-doctor-name">DR TANMAY MUKHERJEE</h3>
+                    <div class="nkpc-doctor-qualification">MD, DNB (NEPHROLOGIST)</div>
+                </div>
+                
+                <div class="nkpc-doctor-card">
+                    <h3 class="nkpc-doctor-name">DR. DIPANKAR SARKAR</h3>
+                    <div class="nkpc-doctor-qualification">MD, DM (NEPHROLOGIST)</div>
+                </div>
+                
+                <div class="nkpc-doctor-card">
+                    <h3 class="nkpc-doctor-name">DR VIVEK GOEL</h3>
+                    <div class="nkpc-doctor-qualification">MD, DNB (NEPHROLOGIST)</div>
+                </div>
+            </div>
+        </details>
+        
+        <!-- NEPHROLOGY -->
+        <details class="nkpc-specialty">
+            <summary>NEPHROLOGY</summary>
+            <div class="nkpc-doctors-list">
+                <div class="nkpc-doctor-card">
+                    <h3 class="nkpc-doctor-name">DR ANINDYA MAITRA</h3>
+                    <div class="nkpc-doctor-qualification">DNB, MRCP, FISN</div>
+                    <div class="nkpc-doctor-specialization">CONSULTANT PHYSICIAN AND NEPHROLOGIST</div>
+                    <div class="nkpc-doctor-timing"><i class="fas fa-clock"></i> MON-SAT: 3:00 PM - 4:00 PM</div>
+                </div>
+                
+                <div class="nkpc-doctor-card">
+                    <h3 class="nkpc-doctor-name">DR. TANMAY MUKHERJEE</h3>
+                    <div class="nkpc-doctor-qualification">MD, DNB (NEPHRO)</div>
+                    <div class="nkpc-doctor-timing"><i class="fas fa-clock"></i> MON-SAT: 10:00 AM - 11:00 AM</div>
+                </div>
+                
+                <div class="nkpc-doctor-card">
+                    <h3 class="nkpc-doctor-name">DR. DIPANKAR SARKAR</h3>
+                    <div class="nkpc-doctor-qualification">MD, DM (NEPHRO)</div>
+                    <div class="nkpc-doctor-timing"><i class="fas fa-clock"></i> MON-SAT: 10:00 AM - 11:00 AM</div>
+                </div>
+                
+                <div class="nkpc-doctor-card">
+                    <h3 class="nkpc-doctor-name">DR. VIVEK GOYEL</h3>
+                    <div class="nkpc-doctor-qualification">MD, DM (NEPHRO)</div>
+                </div>
+            </div>
+        </details>
+        
+        <!-- GENERAL SURGEON -->
+        <details class="nkpc-specialty">
+            <summary>GENERAL SURGEON</summary>
+            <div class="nkpc-doctors-list">
+                <div class="nkpc-doctor-card">
+                    <h3 class="nkpc-doctor-name">DR ARINDAM MONDAL</h3>
+                    <div class="nkpc-doctor-qualification">MBBS, MS, MCH</div>
+                </div>
+            </div>
+        </details>
+        
+        <!-- GYNECOLOGIST -->
+        <details class="nkpc-specialty">
+            <summary>GYNECOLOGIST</summary>
+            <div class="nkpc-doctors-list">
+                <div class="nkpc-doctor-card">
+                    <h3 class="nkpc-doctor-name">DR. ASHOK KUMAR BISWAS</h3>
+                    <div class="nkpc-doctor-qualification">MBBS, MD, DNB (GYNE)</div>
+                    <div class="nkpc-doctor-timing"><i class="fas fa-clock"></i> MON-SAT: 6:00 PM - 7:00 PM</div>
+                </div>
+                
+                <div class="nkpc-doctor-card">
+                    <h3 class="nkpc-doctor-name">DR. (Col) GANGA SARAN</h3>
+                    <div class="nkpc-doctor-qualification">DGO</div>
+                    <div class="nkpc-doctor-timing"><i class="fas fa-clock"></i> MON-SAT</div>
+                </div>
+            </div>
+        </details>
+        
+        <!-- MEDICINE -->
+        <details class="nkpc-specialty">
+            <summary>MEDICINE</summary>
+            <div class="nkpc-doctors-list">
+                <div class="nkpc-doctor-card">
+                    <h3 class="nkpc-doctor-name">DR. PRABIR BISWAS</h3>
+                    <div class="nkpc-doctor-qualification">MBBS, MD (MEDICINE)</div>
+                    <div class="nkpc-doctor-timing"><i class="fas fa-clock"></i> MON-SAT: 12:00 PM - 1:00 PM</div>
+                </div>
+                
+                <div class="nkpc-doctor-card">
+                    <h3 class="nkpc-doctor-name">DR. MANOTOSH SUTRADHAR</h3>
+                    <div class="nkpc-doctor-qualification">MD, FNB (CRITICAL CARE MEDICINE)</div>
+                    <div class="nkpc-doctor-timing"><i class="fas fa-clock"></i> MON-SAT: 7:00 PM - 8:00 PM</div>
+                </div>
+            </div>
+        </details>
+        
+        <!-- CHEST MEDICINE -->
+        <details class="nkpc-specialty">
+            <summary>CHEST MEDICINE</summary>
+            <div class="nkpc-doctors-list">
+                <div class="nkpc-doctor-card">
+                    <h3 class="nkpc-doctor-name">DR. ANIRBAN DEB</h3>
+                    <div class="nkpc-doctor-qualification">MBBS, MD-TUBERCULOSIS RESPIRATORY DISEASES/PULMONARY MEDICINE</div>
+                    <div class="nkpc-doctor-specialization">PULMONOLOGIST</div>
+                    <div class="nkpc-doctor-timing"><i class="fas fa-clock"></i> BY APPOINTMENT</div>
+                </div>
+                
+                <div class="nkpc-doctor-card">
+                    <h3 class="nkpc-doctor-name">DR. DEBABANI BISWAS</h3>
+                    <div class="nkpc-doctor-qualification">MD (CHEST MEDICINE), DNB (RESPIRATORY MEDICINE)</div>
+                    <div class="nkpc-doctor-specialization">CONSULTANT PULMONOLOGIST</div>
+                    <div class="nkpc-doctor-timing"><i class="fas fa-clock"></i> MON-SAT: 6:00 PM - 8:00 PM</div>
+                </div>
+            </div>
+        </details>
+        
+        <!-- CARDIOLOGY -->
+        <details class="nkpc-specialty">
+            <summary>CARDIOLOGY</summary>
+            <div class="nkpc-doctors-list">
+                <div class="nkpc-doctor-card">
+                    <h3 class="nkpc-doctor-name">DR SANJIB PATRA</h3>
+                    <div class="nkpc-doctor-qualification">MD, DM (AIIMS) FNB</div>
+                    <div class="nkpc-doctor-timing"><i class="fas fa-clock"></i> MON-SAT: 7:00 PM - 8:00 PM</div>
+                </div>
+                
+                <div class="nkpc-doctor-card">
+                    <h3 class="nkpc-doctor-name">DR. SIDDHARTHA MANI</h3>
+                    <div class="nkpc-doctor-qualification">MD, DM (CARDIO)</div>
+                    <div class="nkpc-doctor-timing"><i class="fas fa-clock"></i> TUESDAY: 7:00 PM - 8:00 PM</div>
+                </div>
+            </div>
+        </details>
+        
+        <!-- DIABETOLOGIST & ENDOCRINOLOGIST -->
+        <details class="nkpc-specialty">
+            <summary>DIABETOLOGIST & ENDOCRINOLOGIST</summary>
+            <div class="nkpc-doctors-list">
+                <div class="nkpc-doctor-card">
+                    <h3 class="nkpc-doctor-name">DR. NILANJAN SENGUPTA</h3>
+                    <div class="nkpc-doctor-qualification">MD, DM, ENDO GOLD MEDALIST</div>
+                    <div class="nkpc-doctor-timing"><i class="fas fa-clock"></i> TUESDAY: 6:00 PM</div>
+                </div>
+                
+                <div class="nkpc-doctor-card">
+                    <h3 class="nkpc-doctor-name">DR. H N CHAKRABORTY</h3>
+                    <div class="nkpc-doctor-qualification">DM DIABTOLOGY</div>
+                    <div class="nkpc-doctor-timing"><i class="fas fa-clock"></i> MON-SAT: 5:30 PM - 6:30 PM (by appointment)</div>
+                </div>
+            </div>
+        </details>
+        
+        <!-- ONCOLOGY -->
+        <details class="nkpc-specialty">
+            <summary>ONCOLOGY</summary>
+            <div class="nkpc-doctors-list">
+                <div class="nkpc-doctor-card">
+                    <h3 class="nkpc-doctor-name">DR. SUDEEP DAS</h3>
+                    <div class="nkpc-doctor-qualification">MBBS, MD, DM (AIIMS)</div>
+                    <div class="nkpc-doctor-timing"><i class="fas fa-clock"></i> MON-SAT: 6:30 PM - 7:30 PM</div>
+                </div>
+            </div>
+        </details>
+        
+        <!-- ORTHOPEDIC -->
+        <details class="nkpc-specialty">
+            <summary>ORTHOPEDIC</summary>
+            <div class="nkpc-doctors-list">
+                <div class="nkpc-doctor-card">
+                    <h3 class="nkpc-doctor-name">DR. ABHIJIT KANUNGO</h3>
+                    <div class="nkpc-doctor-qualification">MS (ORTHO)</div>
+                    <div class="nkpc-doctor-timing"><i class="fas fa-clock"></i> MON-SAT: 5:00 PM - 6:00 PM</div>
+                </div>
+                
+                <div class="nkpc-doctor-card">
+                    <h3 class="nkpc-doctor-name">DR PRADYUMAN CHAKRABORTY</h3>
+                    <div class="nkpc-doctor-qualification">MBBS, MS (ORTHO)</div>
+                    <div class="nkpc-doctor-timing"><i class="fas fa-clock"></i> BY APPOINTMENT</div>
+                </div>
+            </div>
+        </details>
+        
+        <!-- GASTROLOGIST -->
+        <details class="nkpc-specialty">
+            <summary>GASTROLOGIST</summary>
+            <div class="nkpc-doctors-list">
+                <div class="nkpc-doctor-card">
+                    <h3 class="nkpc-doctor-name">DR. HONEY MAITY</h3>
+                    <div class="nkpc-doctor-qualification">MBBS, DNB GASTROENTEROLOGY</div>
+                    <div class="nkpc-doctor-timing"><i class="fas fa-clock"></i> MON-SAT: 8:00 AM - 9:00 PM</div>
+                </div>
+                
+                <div class="nkpc-doctor-card">
+                    <h3 class="nkpc-doctor-name">DR. RITEN SAMADDER</h3>
+                    <div class="nkpc-doctor-qualification">DM GASTRO</div>
+                    <div class="nkpc-doctor-timing"><i class="fas fa-clock"></i> BY APPOINTMENT</div>
+                </div>
+                
+                <div class="nkpc-doctor-card">
+                    <h3 class="nkpc-doctor-name">DR. ADRINA GANGULY</h3>
+                    <div class="nkpc-doctor-qualification">MD-MEDICINE, DM-GASTRO</div>
+                </div>
+            </div>
+        </details>
+    </div>
+</body>
+</html>

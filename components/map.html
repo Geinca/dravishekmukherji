@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NKPC Hospital - Location</title>
+    <style>
+      
+        .map-section {
+            padding: 40px 20px;
+            background-color: #f8f9fa;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #0a3d62;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .map-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .map-embed {
+            width: 100%;
+            height: 500px;
+            border: 0;
+        }
+
+        .address-box {
+            background-color: #4361ee;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin-top: 20px;
+            border-radius: 8px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .address-box h3 {
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+
+        .address-box p {
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+
+        @media (max-width: 768px) {
+            .map-embed {
+                height: 350px;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .address-box h3 {
+                font-size: 1.2rem;
+            }
+
+            .address-box p {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .map-embed {
+                height: 250px;
+            }
+
+            .section-title {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="map-section">
+        <!-- <h2 class="section-title">Our Location</h2> -->
+        <div class="map-container">
+            <!-- Replace the src with your actual Google Maps embed URL -->
+           <iframe class="map-embed" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3686.14996417987!2d88.39763157518398!3d22.498555979544545!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a02715f35a10645%3A0x30893e43739366f5!2sNKPC%20Kidney%20Clinic!5e0!3m2!1sen!2sin!4v1747487278105!5m2!1sen!2sin"  allowfullscreen="" loading="lazy"></iframe>
+        </div>
+        <div class="address-box">
+            <h3>NKPC Kidney Clinic</h3>
+            <p>1212, 2nd St, Purbalok, Santoshpur, Kolkata, West Bengal 700099</p>
+        </div>
+    </section>
+</body>
+</html>

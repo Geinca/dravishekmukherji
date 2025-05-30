@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Dr. Avishek Mukherjee</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Unique prefix for all classes to avoid conflicts */
+        .dm-about-section {
+            background: linear-gradient(135deg, #f8fbfe 0%, #e6f0fa 100%);
+            padding: 80px 0;
+            font-family: 'Poppins', sans-serif;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .dm-about-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyMDQsMjI5LDI1NSwwLjAzKSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3QgZmlsbD0idXJsKCNwYXR0ZXJuKSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIvPjwvc3ZnPg==');
+            z-index: 0;
+        }
+        
+        .dm-container {
+            max-width: 1500px;
+            margin: 0 auto;
+            padding: 0 10px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .dm-section-title {
+            text-align: center;
+            color: #1a3e72;
+            margin-bottom: 60px;
+            font-weight: 700;
+            position: relative;
+            font-size: 2.5rem;
+            text-transform: capitalize;
+        }
+        
+        .dm-section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #3a7bd5 0%, #00d2ff 100%);
+            margin: 20px auto;
+            border-radius: 2px;
+        }
+        
+        .dm-profile-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            justify-content: space-between;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .dm-profile-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, #3a7bd5, #00d2ff);
+        }
+        
+        .dm-bio-content {
+            flex: 0 0 58%;
+            padding: 50px 40px;
+        }
+        
+        .dm-intro-text {
+            font-size: 17px;
+            line-height: 1.8;
+            color: #4a5568;
+            margin-bottom: 35px;
+            position: relative;
+            padding-left: 25px;
+            border-left: 3px solid #3a7bd5;
+        }
+        
+        .dm-expand-section {
+            margin-bottom: 30px;
+        }
+        
+        .dm-know-more-btn {
+            background: linear-gradient(90deg, #3a7bd5 0%, #00d2ff 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 17px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            text-align: left;
+            box-shadow: 0 4px 15px rgba(58, 123, 213, 0.3);
+            font-weight: 500;
+        }
+        
+        .dm-know-more-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(58, 123, 213, 0.4);
+        }
+        
+        .dm-know-more-btn i {
+            margin-left: 10px;
+            transition: all 0.3s;
+        }
+        
+        .dm-collapsible-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            background: #f8fafc;
+            border-radius: 8px;
+            margin-top: 0;
+        }
+        
+        .dm-collapsible-content.dm-active {
+            max-height: 2000px;
+            padding: 25px;
+            margin-top: 20px;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .dm-details-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+        
+        .dm-details-table th {
+            background: linear-gradient(90deg, #3a7bd5 0%, #00d2ff 100%);
+            color: white;
+            padding: 15px 20px;
+            text-align: left;
+            font-weight: 500;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .dm-details-table th::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255,255,255,0.1);
+            transform: translateX(-100%);
+            transition: transform 0.3s;
+        }
+        
+        .dm-details-table th:hover::after {
+            transform: translateX(0);
+        }
+        
+        .dm-details-table td {
+            padding: 15px 20px;
+            border-bottom: 1px solid #edf2f7;
+            vertical-align: top;
+            transition: all 0.2s;
+        }
+        
+        .dm-details-table tr:nth-child(even) {
+            background: #f7fafc;
+        }
+        
+        .dm-details-table tr:hover td {
+            background: #ebf5ff;
+        }
+        
+        .dm-details-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .dm-image-container {
+            flex: 0 0 42%;
+            position: relative;
+            min-height: 500px;
+            background: #f0f4f8;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+        }
+        
+        .dm-doctor-img {
+            width: 100%;
+            max-width: 350px;
+            border-radius: 10px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            transition: all 0.4s;
+            border: 8px solid white;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .dm-doctor-img:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .dm-img-caption {
+            background: white;
+            padding: 25px;
+            margin-top: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            width: 100%;
+            max-width: 350px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .dm-img-caption::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-bottom: 15px solid white;
+        }
+        
+        .dm-img-caption h4 {
+            color: #1a365d;
+            margin-bottom: 8px;
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+        
+        .dm-img-caption p {
+            color: #4a5568;
+            margin-bottom: 5px;
+            font-size: 15px;
+        }
+        
+        .dm-img-caption p:first-of-type {
+            color: #3a7bd5;
+            font-weight: 600;
+        }
+        
+        .dm-cert-badge {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            background: #3a7bd5;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(58, 123, 213, 0.3);
+            transform: rotate(15deg);
+            z-index: 2;
+        }
+        
+        .dm-milestones-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+        
+        .dm-milestones-list li {
+            padding: 12px 15px 12px 40px;
+            margin-bottom: 10px;
+            background: #f8fafc;
+            border-left: 4px solid #3a7bd5;
+            position: relative;
+            transition: all 0.3s;
+            border-radius: 4px;
+        }
+        
+        .dm-milestones-list li:hover {
+            background: #ebf5ff;
+            transform: translateX(5px);
+        }
+        
+        .dm-milestones-list li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 15px;
+            top: 12px;
+            color: #3a7bd5;
+        }
+        
+        @media (max-width: 1024px) {
+            .dm-bio-content, .dm-image-container {
+                flex: 0 0 100%;
+            }
+            
+            .dm-bio-content {
+                padding: 40px 30px;
+            }
+            
+            .dm-image-container {
+                min-height: auto;
+                padding: 40px 30px;
+                order: -1;
+            }
+            
+            .dm-doctor-img {
+                max-width: 300px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .dm-section-title {
+                font-size: 2rem;
+                margin-bottom: 40px;
+            }
+            
+            .dm-bio-content {
+                padding: 30px 20px;
+            }
+            
+            .dm-image-container {
+                padding: 30px 20px;
+            }
+            
+            .dm-cert-badge {
+                top: 20px;
+                right: 20px;
+                font-size: 12px;
+            }
+        }
+        @media (max-width: 1024px) {
+  .dm-profile-wrapper {
+    flex-direction: column;
+  }
+
+  .dm-bio-content,
+  .dm-image-container {
+    flex: 100%;
+    max-width: 100%;
+    padding: 20px;
+  }
+
+  .dm-bio-content {
+    order: 2;
+  }
+
+  .dm-image-container {
+    order: 1;
+    text-align: center;
+  }
+
+  .dm-doctor-img,
+  .dm-img-caption {
+    max-width: 90%;
+    margin: 0 auto;
+  }
+
+  .dm-know-more-btn {
+    font-size: 16px;
+    padding: 12px 20px;
+  }
+
+  .dm-intro-text {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .dm-section-title {
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 600px) {
+  .dm-section-title {
+    font-size: 1.8rem;
+  }
+
+  .dm-know-more-btn {
+    font-size: 15px;
+    padding: 10px 16px;
+  }
+
+  .dm-details-table th,
+  .dm-details-table td {
+    font-size: 14px;
+    padding: 10px 12px;
+  }
+
+  .dm-img-caption h4 {
+    font-size: 1.2rem;
+  }
+
+  .dm-img-caption p {
+    font-size: 13px;
+  }
+
+  .dm-cert-badge {
+    font-size: 11px;
+    padding: 8px 12px;
+    top: 15px;
+    right: 15px;
+  }
+}
+
+        /* Animation for table rows */
+        @keyframes dm-fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .dm-details-table tr {
+            animation: dm-fadeIn 0.3s ease-out forwards;
+            opacity: 0;
+        }
+        
+        .dm-details-table tr:nth-child(1) { animation-delay: 0.1s; }
+        .dm-details-table tr:nth-child(2) { animation-delay: 0.2s; }
+        .dm-details-table tr:nth-child(3) { animation-delay: 0.3s; }
+        .dm-details-table tr:nth-child(4) { animation-delay: 0.4s; }
+        .dm-details-table tr:nth-child(5) { animation-delay: 0.5s; }
+        .dm-details-table tr:nth-child(6) { animation-delay: 0.6s; }
+        .dm-details-table tr:nth-child(7) { animation-delay: 0.7s; }
+        .dm-details-table tr:nth-child(8) { animation-delay: 0.8s; }
+        .dm-details-table tr:nth-child(9) { animation-delay: 0.9s; }
+        .dm-details-table tr:nth-child(10) { animation-delay: 1.0s; }
+    </style>
+</head>
+<body>
+    <section class="dm-about-section">
+        <div class="dm-container">
+            <h2 class="dm-section-title">About Dr. Avishek Mukherjee</h2>
+            <div class="dm-profile-wrapper">
+                <div class="dm-bio-content">
+                    <p class="dm-intro-text">Dr. Avishek Mukherjee is one of the foremost practicing urosurgeons in Eastern India, trained from two of the most prestigious medical universities in the country. With over two decades of experience, he has pioneered numerous advanced urological procedures in the region, making world-class urosurgical care accessible to patients across all economic backgrounds.</p>
+                    <p class="dm-intro-text">After completing his training at AIIMS New Delhi and PGI Chandigarh, Dr. Mukherjee came to Kolkata in 2003 where he worked with renowned urosurgeons at Wockhardt Hospital and Kidney Institute. His commitment to affordable, high-quality care led him to establish NKPC Kidney Clinic in 2007, which has since grown into a super-specialized kidney hospital providing comprehensive urological care.</p>
+                   
+                    <div class="dm-expand-section">
+                        <button class="dm-know-more-btn">Explore Dr. Mukherjee's Credentials <i class="fas fa-chevron-down"></i></button>
+                        <div class="dm-collapsible-content">
+                            <table class="dm-details-table">
+                                <tr>
+                                    <th colspan="2">Education & Training</th>
+                                </tr>
+                                <tr>
+                                    <td>MBBS</td>
+                                    <td>All India Institute of Medical Sciences (AIIMS), New Delhi (1991-1995)</td>
+                                </tr>
+                                <tr>
+                                    <td>Internship</td>
+                                    <td>AIIMS, New Delhi (1996)</td>
+                                </tr>
+                                <tr>
+                                    <td>MS (Surgery)</td>
+                                    <td>AIIMS, New Delhi (1997-2000)</td>
+                                </tr>
+                                <tr>
+                                    <td>MCh (Urosurgery)</td>
+                                    <td>PGI Chandigarh (2000-2003)</td>
+                                </tr>
+                                
+                                <tr>
+                                    <th colspan="2">Professional Experience</th>
+                                </tr>
+                                <tr>
+                                    <td>2003-2009</td>
+                                    <td>Wockhardt Hospital and Kidney Institute, Kolkata (Worked with Dr. Shibaji Basu, Dr. Kalyan Sarkar, Dr. P K Mishra, Dr. Amlan Chakraborty, and Dr. R K Gopala Krishna)</td>
+                                </tr>
+                                <tr>
+                                    <td>2009-2010</td>
+                                    <td>Anandoloke Hospital</td>
+                                </tr>
+                                <tr>
+                                    <td>2010-2016</td>
+                                    <td>Ruby General Hospital</td>
+                                </tr>
+                                <tr>
+                                    <td>2016-Present</td>
+                                    <td>Founder & Chief Urosurgeon, NKPC Kidney Clinic (Super-specialized Kidney Hospital)</td>
+                                </tr>
+                                
+                                <tr>
+                                    <th colspan="2">Specialty Fields</th>
+                                </tr>
+                                <tr>
+                                    <td>Uro-Cancer Surgery</td>
+                                    <td>Pioneer in laparoscopic cancer surgeries in Eastern India</td>
+                                </tr>
+                                <tr>
+                                    <td>Transplant Surgery</td>
+                                    <td>Performed first laparoscopic donor nephrectomy for kidney transplantation in Eastern India (2005)</td>
+                                </tr>
+                                <tr>
+                                    <td>Laser Surgery</td>
+                                    <td>Largest series of holmium laser HOLEP surgery for benign prostate in Eastern India</td>
+                                </tr>
+                                <tr>
+                                    <td>Andrology</td>
+                                    <td>Pioneer in penile implant surgery for erectile dysfunction in Eastern India</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <h3 style="color: #3a7bd5; margin-top: 40px; margin-bottom: 20px; font-weight: 600;">Career Milestones</h3>
+                    <ul class="dm-milestones-list">
+                        <li>Phadke Scholar (2002-2003) - All India best MCh student awarded by Urology Society of India</li>
+                        <li>Fellowship under renowned andrologist Dr. Rupin S Shah MS Mch</li>
+                        <li>Fellowship in Laparoscopic Urosurgery at SGPGI Lucknow (2003)</li>
+                        <li>Pioneer in penile implant surgery for erectile dysfunction in Eastern India</li>
+                        <li>Performed first laparoscopic radical prostate cancer surgery in Eastern India (2004)</li>
+                        <li>Performed first laparoscopic nephron sparing surgery for kidney cancer in Eastern India (2005)</li>
+                        <li>Largest series of holmium laser HOLEP surgery for benign prostate in Eastern India</li>
+                        <li>Pioneer in laser surgery for kidney and ureter stone disease in Eastern India</li>
+                        <li>Performed first laparoscopic donor nephrectomy for kidney transplantation at Wockhardt Hospital (2005)</li>
+                    </ul>
+                </div>
+                
+                <div class="dm-image-container">
+                    <div class="dm-cert-badge">Phadke Scholar</div>
+                    <img src="https://i.ibb.co/PvccRt4Z/mukharji.png" alt="Dr. Avishek Mukherjee" class="dm-doctor-img">
+                    <div class="dm-img-caption">
+                        <h4>Dr. Avishek Mukherjee</h4>
+                        <p>MS, MCh (Urosurgery)</p>
+                        <p>Leading Urosurgeon in Eastern India</p>
+                        <p>20+ Years of Pioneering Experience</p>
+                        <p>Founder, NKPC Kidney Clinic</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <script>
+    document.querySelector('.dm-know-more-btn').addEventListener('click', function() {
+        const icon = this.querySelector('i');
+        const content = document.querySelector('.dm-collapsible-content');
+        
+        icon.classList.toggle('fa-chevron-up');
+        icon.classList.toggle('fa-chevron-down');
+        content.classList.toggle('dm-active');
+        
+        // Smooth scroll to keep button in view when opening
+        if (content.classList.contains('dm-active')) {
+            this.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+    });
+    </script>
+</body>
+</html>
