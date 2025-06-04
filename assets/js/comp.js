@@ -858,47 +858,75 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(response => response.text())
         .then(data => {
             document.getElementById("app").innerHTML = data;
-              const appointmentForm = document.querySelector('.appointment-form-box');
-    
-    appointmentForm.addEventListener('submit', function(e) {
+        const appointmentForm = document.querySelector('.appointment-form-box');
+
+    appointmentForm.addEventListener('submit', function (e) {
         e.preventDefault();
-        
-        // Get form values
-        const firstName = document.querySelector('input[type="text"]:nth-of-type(1)').value;
-        const lastName = document.querySelector('input[type="text"]:nth-of-type(2)').value;
-        const email = document.querySelector('input[type="email"]').value;
-        const phone = document.querySelector('input[type="tel"]').value;
-        const gender = document.querySelector('select').value;
-        const date = document.querySelector('input[type="date"]').value;
-        const timeSlot = document.querySelector('input[name="time-slot"]:checked').value;
-        const message = document.querySelector('textarea').value;
-        
-        // Format the message for WhatsApp
-        const whatsappMessage = 
-            `*New Appointment Request*%0A%0A` +
-            `*Name:* ${firstName} ${lastName}%0A` +
-            `*Email:* ${email}%0A` +
-            `*Phone:* ${phone}%0A` +
-            `*Gender:* ${gender}%0A` +
-            `*Appointment Date:* ${date}%0A` +
-            `*Preferred Time:* ${timeSlot}%0A` +
-            `*Message:* ${message}`;
-        
-        // Replace with your WhatsApp number (include country code, remove any +, 0, or -)
-        const whatsappNumber = '08420017061'; // Example: India 9876543210
-        
-        // Create WhatsApp URL
-        const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
-        
-        // Open WhatsApp in a new tab
-        window.open(whatsappUrl, '_blank');
-        
-        // Optional: Reset the form after submission
-        appointmentForm.reset();
-        
-        // Optional: Show confirmation message
-        alert('Thank you! Your appointment details have been shared via WhatsApp.');
-    });  
+
+        // Validate all required fields
+        const isValid = validateForm();
+        if (!isValid) {
+            alert('Please fill in all required fields.');
+            return;
+        }
+
+        // Collect form data
+        const data = {
+            firstName: appointmentForm.querySelector('input[placeholder="First Name"]').value.trim(),
+            lastName: appointmentForm.querySelector('input[placeholder="Last Name"]').value.trim(),
+            email: appointmentForm.querySelector('input[type="email"]').value.trim(),
+            phone: appointmentForm.querySelector('input[type="tel"]').value.trim(),
+            gender: appointmentForm.querySelector('select').value,
+            date: appointmentForm.querySelector('input[type="date"]').value,
+            timeSlot: appointmentForm.querySelector('input[name="time-slot"]:checked')?.value || 'Not selected',
+            message: appointmentForm.querySelector('textarea').value.trim()
+        };
+
+        // Format the WhatsApp message
+        const message = `*New Appointment Request*%0A%0A` +
+            `*Name:* ${encodeURIComponent(data.firstName + ' ' + data.lastName)}%0A` +
+            `*Email:* ${encodeURIComponent(data.email)}%0A` +
+            `*Phone:* ${encodeURIComponent(data.phone)}%0A` +
+            `*Gender:* ${encodeURIComponent(data.gender)}%0A` +
+            `*Date:* ${encodeURIComponent(data.date)}%0A` +
+            `*Time Slot:* ${encodeURIComponent(data.timeSlot)}%0A` +
+            `*Message:* ${encodeURIComponent(data.message)}`;
+
+        // Replace with your desired WhatsApp number (no "+" or dashes)
+        const whatsappNumber = '918420017061';
+        const whatsappLink = `https://wa.me/${whatsappNumber}?text=${message}`;
+
+        // Open WhatsApp with the message
+        window.open(whatsappLink, '_blank');
+        alert('Redirecting to WhatsApp...');
+    });
+
+    function validateForm() {
+        let valid = true;
+        const requiredFields = appointmentForm.querySelectorAll('[required]');
+        requiredFields.forEach(field => {
+            if (!field.value.trim()) {
+                field.style.borderColor = 'red';
+                valid = false;
+            } else {
+                field.style.borderColor = '#ccc';
+            }
+        });
+
+        const timeSlotChecked = appointmentForm.querySelector('input[name="time-slot"]:checked');
+        if (!timeSlotChecked) {
+            alert('Please select a time slot.');
+            valid = false;
+        }
+
+        return valid;
+    }
+
+    // Allow only numbers and "+" in phone input
+    const phoneInput = appointmentForm.querySelector('input[type="tel"]');
+    phoneInput.addEventListener('input', function () {
+        this.value = this.value.replace(/[^0-9+]/g, '');
+    });
         })
         .catch(error => console.error("Error loading the header:", error));
 });
