@@ -113,7 +113,7 @@
                     <p>We typically respond within 24 hours</p>
                 </div>
                 
-                <form class="nk-contact-form">
+               <form class="nk-contact-form" onsubmit="return sendToWhatsApp()">
                     <div class="nk-form-row">
                         <div class="nk-form-field-group">
                             <label for="name">Full Name</label>
@@ -156,6 +156,34 @@
 
     <div id="whatsapp"></div>
     <div id="footer"></div>
+    <script>
+function sendToWhatsApp() {
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const subject = document.getElementById("subject").value.trim();
+    const message = document.getElementById("message").value.trim();
+
+    if (!name || !email || !message) {
+        alert("Please fill in all required fields.");
+        return false;
+    }
+
+    const phoneNumber = "918420017061"; // Replace with your desired WhatsApp number (with country code, no + or spaces)
+    
+    const text = `*Contact Form Submission*%0A
+*Name:* ${name}%0A
+*Email:* ${email}%0A
+*Subject:* ${subject}%0A
+*Message:* ${message}`;
+
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(text)}`;
+    
+    window.open(whatsappURL, '_blank');
+
+    return false; // Prevent actual form submission
+}
+</script>
+
     <script src="/assets/js/script.js"></script>
     <script src="/assets/js/comp.js"></script>
 </body>
